@@ -1,0 +1,41 @@
+.Header {
+    height: 86px;
+    width: 1200px;
+    font-family: 'Source Sans Pro', sans-serif;
+    
+  }
+
+.TopHeader {
+    height: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: rgb(156, 156, 156);
+    font-size: 12px;
+}
+
+.DiscountSpan {
+    padding: 10px 10px;
+}
+
+.MakeSaleSpan {
+    padding: 10px 10px;
+}
+
+.SupportSpan {
+    padding: 10px 0 10px 10px;
+}
+
+.DiscountSpan:hover,
+.MakeSaleSpan:hover,
+.SupportSpan:hover {
+    cursor: pointer;
+    color: rgb(60, 60, 60);
+}
+
+.StickyHeader {
+    height: 66px;
+    width: 100%;
+    background-color: greenyellow;
+}
