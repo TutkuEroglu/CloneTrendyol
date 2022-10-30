@@ -2,7 +2,7 @@
     height: 86px;
     width: 1200px;
     font-family: 'Source Sans Pro', sans-serif;
-    
+    background-color: #FFFFFF;
   }
 
 .TopHeader {
@@ -16,15 +16,18 @@
 }
 
 .DiscountSpan {
-    padding: 10px 10px;
+    padding: 10px 10px 0 10px;
+    box-sizing: border-box;
 }
 
 .MakeSaleSpan {
-    padding: 10px 10px;
+    padding: 10px 10px 0 10px;
+    box-sizing: border-box;
 }
 
 .SupportSpan {
-    padding: 10px 0 10px 10px;
+    padding: 10px 0 0 10px;
+    box-sizing: border-box;
 }
 
 .DiscountSpan:hover,
@@ -37,5 +40,192 @@
 .StickyHeader {
     height: 66px;
     width: 100%;
-    background-color: greenyellow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.StickyIcon {
+    width: 146px;
+    height: 100%;
+    margin-top: 5px;
+}
+
+.StickyIcon:hover {
+    cursor: pointer;
+}
+
+.MiddleHeader {
+    width: 598px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MiddleInput {
+    flex: 1;
+    padding: 10px 40px 10px 15px;
+    border: 2px solid rgba(0,0,0,0);
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    box-sizing: border-box;
+    border-right: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3F3F3;
+    color: #333;
+}
+
+.SearchIcon {
+    border: 2px solid rgba(0,0,0,0);
+    border-left: none;
+    color: #F27A1A;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    height: 35px;
+    width: 35px;
+    -webkit-text-stroke: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F3F3F3;
+}
+
+.MiddleInput:focus {
+  border-color: #F27A1A;
+  transition: all ease .3s;
+}
+
+.MiddleInput:focus + .SearchIcon{
+    border-color: #F27A1A;
+    transition: all ease .3s;
+  }
+
+  .StickyHeaderButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .MyAccount {
+    padding: 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1b1b1b;
+  }
+
+  .MyAccountIcon {
+    font-size: 18px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    -webkit-text-stroke: 0.2px;
+  }
+
+  .MyAccountFillIcon {
+    font-size: 18px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    -webkit-text-stroke: 0.2px;
+  }
+
+  .MyAccountSpan {
+    font-size: 13px;
+  }
+
+  .MyAccount:hover {
+    cursor: pointer;
+  }
+
+  .MyAccount:hover  .MyAccountFillIcon {
+    color: #F27A1A;
+    transition: all ease .4s;
+  }
+
+  .MyAccount:hover  .MyAccountSpan {
+    color: #F27A1A;
+  }
+
+  .MyFavorites {
+    padding: 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1b1b1b;
+  }
+
+  .MyFavoritesIcon {
+    font-size: 16px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    -webkit-text-stroke: 0.2px;
+  }
+
+  .MyFavoritesFillIcon {
+    font-size: 16px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    -webkit-text-stroke: 0.2px;
+  }
+
+  .MyFavoritesSpan {
+    font-size: 13px;
+  }
+
+  .MyFavorites:hover {
+    cursor: pointer;
+  }
+
+  .MyFavorites:hover  .MyFavoritesFillIcon {
+    color: #F27A1A;
+    transition: all ease .4s;
+  }
+
+  .MyFavorites:hover  .MyFavoritesSpan {
+    color: #F27A1A;
+  }
+
+  .MyBasket {
+    padding: 0 0 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1b1b1b;
+  }
+
+  .MyBasketIcon {
+    font-size: 18px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    -webkit-text-stroke: 0.2px;
+  }
+
+  .MyBasketFillIcon {
+    font-size: 18px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    -webkit-text-stroke: 0.2px;
+  }
+
+  .MyBasketSpan {
+    font-size: 13px;
+  }
+
+  .MyBasket:hover {
+    cursor: pointer;
+  }
+
+  .MyBasket:hover  .MyBasketFillIcon {
+    color: #F27A1A;
+    transition: all ease .4s;
+  }
+
+  .MyBasket:hover  .MyBasketSpan {
+    color: #F27A1A;
+  }
