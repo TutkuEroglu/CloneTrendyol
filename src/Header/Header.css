@@ -94,6 +94,10 @@
     background-color: #F3F3F3;
 }
 
+.SearchIcon:hover {
+  cursor: pointer;
+}
+
 .MiddleInput:focus {
   border-color: #F27A1A;
   transition: all ease .3s;
