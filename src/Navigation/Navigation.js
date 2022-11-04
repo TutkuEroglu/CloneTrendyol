@@ -1,17 +1,18 @@
 import React from 'react'
-import "./Navigation.css"
+import "./style.js"
 import NavigationList from './NavigationList'
+import { Navigation, NavigationElements } from './style.js'
 
-const Navigation = () => {
+const NavigationContainer = () => {
   return (
-    <div className="Navigation">
+    <Navigation>
         {NavigationList.map((val) => (
-            <div key={val.id} className="NavigationElements">
+            <NavigationElements key={val.id} className="NavigationElements">
                     {val.text.toUpperCase()}
-            </div>
+            </NavigationElements>
         ))}
-    </div>
+    </Navigation>
   )
 }
 
-export default Navigation;
+export default NavigationContainer;
