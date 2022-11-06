@@ -16,16 +16,16 @@ width: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
-font-size: 12px;
-color: #333333;
+font-size: ${({theme}) => theme.fontSizes.tiny};
+color: ${({theme}) => theme.colors.newBg};
 font-weight: 600;
 flex: content;
+cursor: pointer;
 &:hover {
-    color: #F27A1A;
+    color: ${({theme}) => theme.colors.newOrange};
     display:flex;
     background:linear-gradient(#F27A1A,#F27A1A) no-repeat;
     background-size:100% 1px;
     background-position:bottom;
-    cursor: pointer;
   }
 `;

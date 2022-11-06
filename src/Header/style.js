@@ -11,7 +11,7 @@ export const HeaderApp = styled.div`
   height: 86px;
   width: 1200px;
   font-family: "Source Sans Pro", sans-serif;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.whiteBg};
 `;
 
 export const TopHeader = styled.div`
@@ -20,7 +20,7 @@ export const TopHeader = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: rgb(156, 156, 156);
+  color: ${({ theme }) => theme.colors.card};
   font-size: 12px;
 `;
 
@@ -30,7 +30,7 @@ export const DiscountSpan = styled.span`
   cursor: pointer;
 
   &:hover {
-    color: rgb(60, 60, 60);
+    color: ${({ theme }) => theme.colors.text};
   }
 `;
 
@@ -40,7 +40,7 @@ export const MakeSaleSpan = styled.span`
   cursor: pointer;
 
   &:hover {
-    color: rgb(60, 60, 60);
+    color: ${({ theme }) => theme.colors.text};
   }
 `;
 
@@ -50,7 +50,7 @@ export const SupportSpan = styled.span`
   cursor: pointer;
 
   &:hover {
-    color: rgb(60, 60, 60);
+    color: ${({ theme }) => theme.colors.text};
   }
 `;
 
@@ -89,16 +89,16 @@ export const MiddleInput = styled.input`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f3f3f3;
-  color: #333;
+  background-color: ${({ theme }) => theme.colors.inputBg};
+  color: ${({ theme }) => theme.colors.inputColor};
 
   &:focus {
-    border-color: #f27a1a;
+    border-color: ${({ theme }) => theme.colors.newOrange};
     transition: all ease 0.3s;
   }
 
   &:focus + .SearchIcon {
-    border-color: #f27a1a;
+    border-color: ${({ theme }) => theme.colors.newOrange};
     transition: all ease 0.3s;
   }
 `;
@@ -106,7 +106,7 @@ export const MiddleInput = styled.input`
 export const SearchIcon = styled.div`
   border: 2px solid rgba(0, 0, 0, 0);
   border-left: none;
-  color: #f27a1a;
+  color: ${({ theme }) => theme.colors.newOrange};
   border-bottom-right-radius: 6px;
   border-top-right-radius: 6px;
   height: 35px;
@@ -115,7 +115,7 @@ export const SearchIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f3f3f3;
+  background-color: ${({ theme }) => theme.colors.iconBg};
   cursor: pointer;
 `;
 
@@ -131,7 +131,7 @@ export const MyAccount = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1b1b1b;
+  color: ${({ theme }) => theme.colors.cardTitles};
 `;
 
 export const MyAccountIcon = styled(person)`
@@ -150,17 +150,17 @@ export const MyAccountFillIcon = styled(personfill)`
   -webkit-text-stroke: 0.2px;
 
   ${MyAccount}:hover & {
-    color: #f27a1a;
+    color: ${({ theme }) => theme.colors.newOrange};
     transition: all ease 0.4s;
   }
 `;
 
 export const MyAccountSpan = styled.span`
-  font-size: 13px;
+  font-size: ${({ theme }) => theme.fontSizes.stiny};
   cursor: pointer;
 
   ${MyAccount}:hover & {
-    color: #f27a1a;
+    color: ${({ theme }) => theme.colors.newOrange};
   }
 `;
 
@@ -170,7 +170,7 @@ export const MyFavorites = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1b1b1b;
+  color: ${({ theme }) => theme.colors.cardTitles};
   cursor: pointer;
 `;
 
@@ -191,26 +191,26 @@ export const MyFavoritesFillIcon = styled(heartfill)`
 
   ${MyFavorites}:hover & {
     transition: all ease 0.4s;
-    color: #f27a1a;
+    color: ${({ theme }) => theme.colors.newOrange};
   }
 `;
 
 export const MyFavoritesSpan = styled.span`
-  font-size: 13px;
+  font-size: ${({ theme }) => theme.fontSizes.stiny};
 
   ${MyFavorites}:hover & {
-    color: #F27A1A;
+    color: ${({ theme }) => theme.colors.newOrange};
   }
 `;
 
 export const MyBasket = styled.div`
-padding: 0 15px;
-box-sizing: border-box;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #1b1b1b;
-cursor: pointer;
+  padding: 0 0 0 15px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.cardTitles};
+  cursor: pointer;
 `;
 
 export const MyBasketIcon = styled(cart)`
@@ -229,15 +229,15 @@ export const MyBasketFillIcon = styled(cartfill)`
   -webkit-text-stroke: 0.2px;
 
   ${MyBasket}:hover & {
-    color: #f27a1a;
+    color: ${({ theme }) => theme.colors.newOrange};
     transition: all ease 0.4s;
   }
 `;
 
 export const MyBasketSpan = styled.span`
-  font-size: 13px;
+  font-size: ${({ theme }) => theme.fontSizes.stiny};
 
   ${MyBasket}:hover & {
-    color: #F27A1A;
+    color: ${({ theme }) => theme.colors.newOrange};
   }
 `;
