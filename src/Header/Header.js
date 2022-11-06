@@ -1,6 +1,29 @@
-import React, {useState} from 'react'
-import "./Header.css"
-import headerIcon from "../assets/ty-web.svg"
+import React, { useState } from "react";
+import {
+  HeaderApp,
+  TopHeader,
+  DiscountSpan,
+  MakeSaleSpan,
+  SupportSpan,
+  StickyHeader,
+  StickyIcon,
+  MiddleHeader,
+  MiddleInput,
+  SearchIcon,
+  StickyHeaderButtons,
+  MyAccount,
+  MyAccountSpan,
+  MyFavorites,
+  MyFavoritesSpan,
+  MyBasket,
+  MyBasketSpan,
+  MyBasketFillIcon,
+  MyAccountFillIcon,
+  MyAccountIcon,
+  MyFavoritesFillIcon,
+  MyFavoritesIcon,
+  MyBasketIcon,
+} from "./style.js";
 
 const Header = () => {
   const [accountIsHovering, setAccountIsHovering] = useState(false);
@@ -32,38 +55,47 @@ const Header = () => {
   };
 
   return (
-    <div className="Header">
-      <div className="TopHeader">
-        <span className="DiscountSpan">İndirim Kuponlarım</span>
-        <span className="MakeSaleSpan">Trendyol'da Satış Yap</span>
-        <span className="SupportSpan">Yardım & Destek</span>
-      </div>
-      <div className="StickyHeader">
-        <img className="StickyIcon" src={headerIcon} alt="headerIcon"/>
+    <HeaderApp>
+      <TopHeader>
+        <DiscountSpan>İndirim Kuponlarım</DiscountSpan>
+        <MakeSaleSpan>Trendyolda Satış Yap</MakeSaleSpan>
+        <SupportSpan>Yardım & Destek</SupportSpan>
+      </TopHeader>
+      <StickyHeader>
+        <StickyIcon alt="headerIcon" />
 
-        <div className="MiddleHeader">
-          <input className="MiddleInput" placeholder="Aradığınız ürün, kategori veya markayı yazınız"/>
-          <i className="bi bi-search SearchIcon"></i>
-        </div>
-        
-        <div className="StickyHeaderButtons">
-          <div className="MyAccount" onMouseOver={AccountHandleMouseOver} onMouseOut={AccountHandleMouseOut}>
-            <i className={accountIsHovering ? "bi bi-person-fill MyAccountFillIcon" : "bi bi-person MyAccountIcon"}></i>
-            <span className="MyAccountSpan">Hesabım</span>
-          </div>
-          <div className="MyFavorites" onMouseOver={FavoriteshandleMouseOver} onMouseOut={FavoritesHandleMouseOut}>
-            <i className={favoriteIsHovering ? "bi bi-heart-fill MyFavoritesFillIcon" : "bi bi-heart MyFavoritesIcon"} ></i>
-            <span className="MyFavoritesSpan">Favorilerim</span>
-          </div>
-          <div className="MyBasket" onMouseOver={BasketHandleMouseOver} onMouseOut={BasketHandleMouseOut}>
-            <i className={basketIsHovering ? "bi bi-cart-fill MyBasketFillIcon" : "bi bi-cart MyBasketIcon"}></i>
-            <span className="MyBasketSpan">Sepetim</span>
-          </div>  
-        </div>
+        <MiddleHeader>
+          <MiddleInput placeholder="Aradığınız ürün, kategori veya markayı yazınız" />
+          <SearchIcon className="bi bi-search SearchIcon"></SearchIcon>
+        </MiddleHeader>
 
-      </div>
-    </div>
-  )
-}
+        <StickyHeaderButtons>
+          <MyAccount
+            onMouseOver={AccountHandleMouseOver}
+            onMouseOut={AccountHandleMouseOut}
+          >
+            {accountIsHovering ? <MyAccountFillIcon /> : <MyAccountIcon />}
 
-export default Header
+            <MyAccountSpan>Hesabım</MyAccountSpan>
+          </MyAccount>
+          <MyFavorites
+            onMouseOver={FavoriteshandleMouseOver}
+            onMouseOut={FavoritesHandleMouseOut}
+          >
+            {favoriteIsHovering ? <MyFavoritesFillIcon /> : <MyFavoritesIcon />}
+            <MyFavoritesSpan>Favorilerim</MyFavoritesSpan>
+          </MyFavorites>
+          <MyBasket
+            onMouseOver={BasketHandleMouseOver}
+            onMouseOut={BasketHandleMouseOut}
+          >
+            {basketIsHovering ? <MyBasketFillIcon /> : <MyBasketIcon />}
+            <MyBasketSpan>Sepetim</MyBasketSpan>
+          </MyBasket>
+        </StickyHeaderButtons>
+      </StickyHeader>
+    </HeaderApp>
+  );
+};
+
+export default Header;
