@@ -1,19 +1,97 @@
 import styled from "styled-components";
-import { ReactComponent as truck } from "../assets/svg/truck.svg";
-import { ReactComponent as award } from "../assets/svg/award.svg";
-import { ReactComponent as tag } from "../assets/svg/tag.svg";
-import { ReactComponent as playcircle } from "../assets/svg/playcircle.svg";
+import {ReactComponent as truck} from "../assets/svg/truck.svg";
+import {ReactComponent as award} from "../assets/svg/award.svg";
+import {ReactComponent as tag} from "../assets/svg/tag.svg";
+import {ReactComponent as playcircle} from "../assets/svg/playcircle.svg";
+import {ReactComponent as uparrow} from "../assets/svg/chevron-up.svg";
+import {ReactComponent as downarrow} from "../assets/svg/chevron-down.svg";
 
 
 export const BodyContainer = styled.div`
-min-width: 1200px;
-display: flex;
-align-items: center;
-font-family: 'Source Sans Pro', sans-serif;
+  min-width: 1200px;
+  display: flex;
+  font-family: 'Source Sans Pro', sans-serif;
 `;
 
 export const CategoryContainer = styled.div`
-  min-width: 200px;
+  width: 220px;
+  margin-right: 10px;
+`;
+
+export const StickyLeftContainer = styled.div`
+  position: sticky;
+  top: 0;
+  bottom: auto;
+`;
+
+export const OptionContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  border-bottom: 1px solid #E8E8E8;
+`;
+
+export const StickyOption = styled.div`
+  padding: 15px 5px 5px 5px;
+  margin: 0 -5px 0 -5px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(246, 246, 246);
+  }
+`;
+
+export const OptionSpan = styled.span`
+  font-size: 14px;
+  font-family: source_sans_prosemibold!important;
+  color: #333333;
+  font-weight: 550;
+  margin-bottom: 8px;
+`;
+
+export const OptionUpIcon = styled(uparrow)`
+  margin-bottom: 10px;
+  color: #f27a1a;
+`;
+
+export const OptionDownIcon = styled(downarrow)`
+  margin-bottom: 10px;
+  color: #f27a1a;
+`;
+
+export const HiddenOptionDiv = styled.div`
+  max-height: 115px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const HiddenOptionSpan = styled.span`
+  color: #1b1b1b;
+  font-size: 13px;
+  padding: 3px 0;
+
+  &:hover {
+    color: #9f9f9f;
+  }
+`;
+
+export const SelectedOptionSpan = styled.span`
+  color: #f27a1a;
+  font-size: 13px;
+  padding: 3px 0;
+  font-weight: 600;
+`;
+
+export const SelectedOptionBack = styled.span`
+  font-family: source_sans_proregular;
+  font-size: 13px;
+  padding: 5px 0;
+  box-sizing: border-box;
+  color: #f27a1a;
+  cursor: pointer;
 `;
 
 export const CardContainer = styled.div`
@@ -28,7 +106,7 @@ export const SearchHeader = styled.span`
   font-size: 18px;
   color: #333;
   letter-spacing: normal;
-  font-family: source_sans_prosemibold,sans-serif;
+  font-family: source_sans_prosemibold, sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,7 +167,7 @@ export const ContainerInfo = styled.div`
   margin-bottom: 15px;
   max-width: 1000px;
   width: 1000px;
- `;
+`;
 
 export const Cards = styled.div`
   height: 496px;
@@ -101,53 +179,53 @@ export const Cards = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   cursor: pointer;
- 
- &:hover {
-  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.2);
-  transition: all 0.3s ease-in-out;
- }
- 
- &:not(hover) {
-   box-shadow: none;
-   transition: all 0.2s ease-in;
- }
- 
+
+  &:hover {
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:not(hover) {
+    box-shadow: none;
+    transition: all 0.2s ease-in;
+  }
+
 `;
 
 export const ImageContainer = styled.div`
- position: relative;
- height: 350px;
+  position: relative;
+  height: 350px;
 `;
 
 export const CardImage = styled.div`
- overflow: hidden;
- border-top-left-radius: 8px;
- border-top-right-radius: 8px;
- width: 229px;
- height: 347px;
+  overflow: hidden;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 229px;
+  height: 347px;
 `;
 
 export const Images = styled.img`
- border-top-left-radius: 8px;
- border-top-right-radius: 8px;
- width: 229px;
- height: 347px;
- 
- &:hover {
-  transform: scale(1.043);
-  transition: transform 0.5s ease;
-  border: none;
- }
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 229px;
+  height: 347px;
 
- &:not(hover) {
-  transform: scale(1);
-  transition: all 0.2s ease-in;
- }
+  &:hover {
+    transform: scale(1.043);
+    transition: transform 0.5s ease;
+    border: none;
+  }
+
+  &:not(hover) {
+    transform: scale(1);
+    transition: all 0.2s ease-in;
+  }
 `;
 
 export const ProductDown = styled.div`
- padding: 10px;
- margin-bottom: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
 `;
 
 export const ContainerDiv = styled.span`
@@ -155,116 +233,116 @@ export const ContainerDiv = styled.span`
 `;
 
 export const ImportantSpan = styled.span`
- font-family: source_sans_proregular,sans-serif;
- font-size: 14px;
- color: #333;
- font-weight: 700;
- margin-right: 4px;
+  font-family: source_sans_proregular, sans-serif;
+  font-size: 14px;
+  color: #333;
+  font-weight: 700;
+  margin-right: 4px;
 `;
 
 export const ContainerSpan = styled.span`
- position: relative;
- line-height: normal;
- font-size: 14px;
- color: #666;
- margin: 2px 0;
- box-sizing: border-box;
- text-align: left;
+  position: relative;
+  line-height: normal;
+  font-size: 14px;
+  color: #666;
+  margin: 2px 0;
+  box-sizing: border-box;
+  text-align: left;
 `;
 
 export const PriceDiv = styled.div`
- height: 45px;
- display: flex;
- flex-direction: column;
- justify-content: center;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const PriceSpan = styled.span`
- display: flex;
- height: 16px;
- min-height: 28px;
- white-space: nowrap;
- color: #f27a1a;
- font-weight: 550;
- font-size: 16px;
- font-family: oxygen-bold;
+  display: flex;
+  height: 16px;
+  min-height: 28px;
+  white-space: nowrap;
+  color: #f27a1a;
+  font-weight: 550;
+  font-size: 16px;
+  font-family: oxygen-bold;
 `;
 
 export const CampaignDiv = styled.div`
- display: flex;
- flex-direction: row;
- height: 24px;
- gap: 5px;
+  display: flex;
+  flex-direction: row;
+  height: 24px;
+  gap: 5px;
 `;
 
 export const VideoContect = styled.div`
- background-color: #ebf5ff;
- border-radius: 4px;
- padding-right: 5px;
- padding-top: 2px;
- padding-bottom: 2px;
- display: flex;
- align-items: center;
- box-sizing: border-box;
+  background-color: #ebf5ff;
+  border-radius: 4px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
 `;
 
 export const VideoIcon = styled(playcircle)`
- width: 14px;
- height: 14px;
- color: #4A90E2;
- padding: 0 5px;
+  width: 14px;
+  height: 14px;
+  color: #4A90E2;
+  padding: 0 5px;
 `;
 
 export const VideoSpan = styled.span`
- color: #333333;
- font-size: 11px;
- font-weight: 600;
+  color: #333333;
+  font-size: 11px;
+  font-weight: 600;
 `;
 
 export const DiscountContect = styled.div`
- background-color: #FFF6EE;
- border-radius: 4px;
- padding-right: 5px;
- padding-top: 2px;
- padding-bottom: 2px;
- display: flex;
- align-items: center;
- box-sizing: border-box;
+  background-color: #FFF6EE;
+  border-radius: 4px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
 `;
 
 export const DiscountIcon = styled(tag)`
- width: 14px;
- height: 14px;
- color: #F27A1A;
- padding: 0 5px;
+  width: 14px;
+  height: 14px;
+  color: #F27A1A;
+  padding: 0 5px;
 `;
 
 export const DiscountSpan = styled.span`
- color: #333333;
- font-size: 11px;
- font-weight: 600;
+  color: #333333;
+  font-size: 11px;
+  font-weight: 600;
 `;
 
 export const CouponContect = styled.div`
- background-color: #FFF0F5;
- border-radius: 4px;
- padding-right: 5px;
- padding-top: 2px;
- padding-bottom: 2px;
- display: flex;
- align-items: center;
- box-sizing: border-box;
+  background-color: #FFF0F5;
+  border-radius: 4px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
 `;
 
 export const CouponIcon = styled(award)`
- width: 14px;
- height: 14px;
- color: #FF4988;
- padding: 0 5px;
+  width: 14px;
+  height: 14px;
+  color: #FF4988;
+  padding: 0 5px;
 `;
 
 export const CouponSpan = styled.span`
- color: #333333;
- font-size: 11px;
- font-weight: 600;
+  color: #333333;
+  font-size: 11px;
+  font-weight: 600;
 `;
