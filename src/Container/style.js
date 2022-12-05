@@ -5,7 +5,7 @@ import {ReactComponent as tag} from "../assets/svg/tag.svg";
 import {ReactComponent as playcircle} from "../assets/svg/playcircle.svg";
 import {ReactComponent as uparrow} from "../assets/svg/chevron-up.svg";
 import {ReactComponent as downarrow} from "../assets/svg/chevron-down.svg";
-
+import {ReactComponent as search} from "../assets/svg/search.svg";
 
 export const BodyContainer = styled.div`
   min-width: 1200px;
@@ -63,9 +63,23 @@ export const OptionDownIcon = styled(downarrow)`
 `;
 
 export const HiddenOptionDiv = styled.div`
-  max-height: 115px;
+  max-height: 184px;
   display: flex;
   flex-direction: column;
+`;
+
+export const HiddenOptionFullDiv = styled.div`
+  max-height: 184px;
+  position: relative;
+  margin-bottom: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
+
+export const HiddenFullDiv = styled.div`
+  height: 100%;
+  position: relative;
+  margin-bottom: 15px;
 `;
 
 export const HiddenOptionSpan = styled.span`
@@ -345,4 +359,134 @@ export const CouponSpan = styled.span`
   color: #333333;
   font-size: 11px;
   font-weight: 600;
+`;
+
+export const CheckBoxLabel = styled.label`
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 6px;
+  padding: 1px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    color: #B5B5B5;
+  }
+`;
+export const CheckBoxFullLabel = styled.label`
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 6px;
+  padding: 2px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    color: #B5B5B5;
+  }
+`;
+
+export const CheckBoxInput = styled.input`
+  margin-right: 5px;
+`;
+
+export const RadioInput = styled.input`
+  margin-bottom: 3px;
+`;
+
+export const SearchBrandInput = styled.input`
+  width: 87%;
+  height: 25px;
+  background-color: #fafafa;
+  border: solid 1px #e2e2e2;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  bottom: auto;
+  outline: none;
+`;
+
+export const ColorDiv = styled.div`
+  max-height: 100%;
+  display: flex;
+  overflow-y: hidden;
+  flex-wrap: wrap;
+  max-width: 200px;
+  cursor: default;
+`;
+
+export const ColorDivBg = styled.div`
+  margin: 2px;
+  padding: 0;
+  height: 32px;
+  display: flex;
+  width: 32px;
+  justify-content: center;
+`;
+
+export const CircularColor = styled.div`
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 1px solid #A0A0A0;
+  background: ${({colour}) => colour && `${colour}`};
+  cursor: pointer;
+`;
+
+export const PriceInputDiv = styled.div`
+  position: relative;
+  margin: 0;
+  max-height: 184px;
+  font-size: 14px;
+  cursor: default;
+`;
+
+export const PriceInput = styled.input`
+  margin-bottom: 5px;
+  height: 30px;
+  background-color: #fafafa;
+  border: solid 1px #e2e2e2;
+  border-radius: 6px;
+  width: 56px;
+  font-size: 10px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const PriceDivSpan = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  color: #9c9c9c;
+  margin-left: 6px;
+  margin-right: 6px;
+`;
+
+export const PriceIcon = styled(search)`
+  margin-bottom: 5px;
+  float: right;
+  width: 18px;
+  height: 18px;
+  border: none;
+  vertical-align: bottom;
+  margin-top: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: grey;
 `;
