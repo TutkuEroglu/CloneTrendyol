@@ -44,6 +44,19 @@ export const StickyOption = styled.div`
   }
 `;
 
+export const StickyOptionAlone = styled.div`
+  padding: 15px 5px 5px 5px;
+  box-sizing: border-box;
+  margin: 0 -5px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  
+  &:hover {
+    background-color: rgb(246, 246, 246);
+  }
+`;
+
 export const OptionSpan = styled.span`
   font-size: 14px;
   font-family: source_sans_prosemibold!important;
@@ -361,23 +374,6 @@ export const CouponSpan = styled.span`
   font-weight: 600;
 `;
 
-export const CheckBoxLabel = styled.label`
-  font-size: 13px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-left: 6px;
-  padding: 1px 0;
-  box-sizing: border-box;
-  cursor: pointer;
-
-  &:hover {
-    color: #B5B5B5;
-  }
-`;
 export const CheckBoxFullLabel = styled.label`
   font-size: 12px;
   display: flex;
@@ -398,6 +394,71 @@ export const CheckBoxFullLabel = styled.label`
 export const CheckBoxInput = styled.input`
   margin-right: 5px;
 `;
+
+export const CheckBoxLabel = styled.label`
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 6px;
+  padding: 1px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    color: #B5B5B5;
+  }
+`;
+
+
+export const OptionSpanAlone = styled.label`
+  display: block;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+
+  &:before {
+  
+    border: 0.1em solid #000;
+    border-radius: 0.2em;
+    display: inline-block;
+    content: '';
+    width: 0.7em;
+    height: 0.7em;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 0.2em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    opacity: 1;
+    background: url(https://cdn.dsmcdn.com/web/assets/check.svg) no-repeat center center;
+  }
+
+  &:active:before {
+    transform: scale(0);
+  }
+`;
+
+export const CheckBoxInputAlone = styled.input`
+  display: none;
+  
+  &:checked + ${OptionSpanAlone}:before {
+      color: #fff;
+      background-color: #f27a1a;
+      border: solid 1.5px #f27a1a;
+  }
+
+  &:checked:disabled + ${OptionSpanAlone}:before {
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
+  }
+`;
+
 
 export const RadioInput = styled.input`
   margin-bottom: 3px;

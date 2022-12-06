@@ -252,3 +252,149 @@ export const TrotterType = [
     text:"Geniş Paça"
   }
 ]
+
+export const PatternList = [
+  {
+    id:1,
+    text:"Büyük Beden"
+  },
+  {
+    id:2,
+    text:"Normal"
+  },{
+    id:3,
+    text:"Slim Fit"
+  },
+  {
+    id:4,
+    text:"Standart"
+  },
+  {
+    id:5,
+    text:"Straight"
+  },{
+    id:6,
+    text:"Comfort"
+  },
+  {
+    id:7,
+    text:"Fitted"
+  },
+  {
+    id:8,
+    text:"Jogger"
+  },
+  {
+    id:9,
+    text:"Wide Leg"
+  },
+  {
+    id:10,
+    text:"Basic"
+  },
+  {
+    id:11,
+    text:"Slim"
+  },
+  {
+    id:12,
+    text:"Regular Jogger"
+  },
+  {
+    id:13,
+    text:"Relaxed"
+  },
+  {
+    id:14,
+    text:"Oversize"
+  }
+]
+
+export const MaterielList = [
+  {
+    id:1,
+    text:"Dalgıç Kumaş"
+  },
+  {
+    id:2,
+    text:"Likra"
+  },{
+    id:3,
+    text:"Polycotton"
+  },
+  {
+    id:4,
+    text:"Polyester"
+  },
+  {
+    id:5,
+    text:"Kadife"
+  },{
+    id:6,
+    text:"Pamuklu"
+  },
+  {
+    id:7,
+    text:"Penye"
+  },
+  {
+    id:8,
+    text:"Pamuk-Polyester-Elastan"
+  },
+  {
+    id:9,
+    text:"Pamuk Karışımlı"
+  },
+  {
+    id:10,
+    text:"Pamuk-Polyester"
+  },
+  {
+    id:11,
+    text:"%100 Organik Pamuk"
+  },
+  {
+    id:12,
+    text:"Pamuk Polyester"
+  },
+  {
+    id:13,
+    text:"100% Pamuk"
+  },
+]
+
+export const usageAreaList = [
+  {
+    id:1,
+    text:"Fitness / Antrenman"
+  },
+  {
+    id:2,
+    text:"Spor"
+  },{
+    id:3,
+    text:"Günlük"
+  },
+  {
+    id:4,
+    text:"Outdoor"
+  }
+]
+
+export const ProductRatingList = [
+  {
+    id:1,
+    text:"4 yıldız ve üzeri"
+  },
+  {
+    id:2,
+    text:"3 yıldız ve üzeri"
+  },{
+    id:3,
+    text:"2 yıldız ve üzeri"
+  },
+  {
+    id:4,
+    text:"1 yıldız ve üzeri"
+  }
+]

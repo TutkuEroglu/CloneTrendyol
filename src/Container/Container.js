@@ -6,7 +6,7 @@ import {
   CardContainer,
   CardImage,
   Cards,
-  CategoryContainer, CheckBoxFullLabel, CheckBoxInput,
+  CategoryContainer, CheckBoxFullLabel, CheckBoxInput, CheckBoxInputAlone,
   CheckBoxLabel, CircularColor, ColorDiv, ColorDivBg,
   ContainerDiv,
   ContainerInfo,
@@ -28,7 +28,7 @@ import {
   Info,
   OptionContainer,
   OptionDownIcon,
-  OptionSpan,
+  OptionSpan, OptionSpanAlone,
   OptionUpIcon,
   PriceDiv, PriceDivSpan, PriceIcon, PriceInput, PriceInputDiv,
   PriceSpan,
@@ -37,7 +37,7 @@ import {
   SelectedOptionBack,
   SelectedOptionSpan,
   StickyLeftContainer,
-  StickyOption,
+  StickyOption, StickyOptionAlone,
   TruckIcon,
   VideoContect,
   VideoIcon,
@@ -45,7 +45,16 @@ import {
 } from './style.js'
 import ContainerList from "./ContainerList";
 import {formatStar} from "../Utils/starFormatter";
-import {BodySize, BrandList, Colours, PriceList, StarProductList, TrotterType} from "../ArrayList/List";
+import {
+  BodySize,
+  BrandList,
+  Colours,
+  MaterielList,
+  PatternList,
+  PriceList, ProductRatingList,
+  StarProductList,
+  TrotterType, usageAreaList
+} from "../ArrayList/List";
 
 const Container = () => {
   const [category, setCategory] = useState(false);
@@ -60,7 +69,24 @@ const Container = () => {
   const [priceCategory, setPriceCategory] = useState(false);
   const [starCategory, setStarCategory] = useState(false);
   const [trotterCategory, setTrotterCategory] = useState(false);
+  const [patternCategory, setPatternCategory] = useState(false);
+  const [materielCategory, setMaterielCategory] = useState(false);
+  const [waistCategory, setWaistCategory] = useState(false);
+  const [usageAreaCategory, setUsageAreaCategory] = useState(false);
+  const [sellerTypeCategory, setSellerTypeCategory] = useState(false);
+  const [productRatingCategory, setProductRatingCategory] = useState(false);
   const [price, setPrice] = useState("");
+
+  const [checked, setChecked] = useState(false);
+
+  const onChange = event => {
+    if (event.target.checked) {
+      console.log('✅ Checkbox is checked');
+    } else {
+      console.log('⛔️ Checkbox is NOT checked');
+    }
+    setChecked(!checked);
+  };
 
   const handleCheckboxChange = event => {
     if (event.target.value === "Erkek") {
@@ -170,7 +196,6 @@ const Container = () => {
               </ColorDiv>
             )}
           </OptionContainer>
-
           <OptionContainer>
             <StickyOption onClick={() => setPriceCategory(!priceCategory)}>
               <OptionSpan>Fiyat</OptionSpan>
@@ -178,14 +203,18 @@ const Container = () => {
             </StickyOption>
             {priceCategory && (
               <HiddenOptionFullDiv>
-              <PriceInputDiv>
-                <PriceInput placeholder="En Az"/>
-                <PriceDivSpan>-</PriceDivSpan>
-                <PriceInput placeholder="En Çok"/>
-                <PriceIcon />
-              </PriceInputDiv>
+                <PriceInputDiv>
+                  <PriceInput placeholder="En Az"/>
+                  <PriceDivSpan>-</PriceDivSpan>
+                  <PriceInput placeholder="En Çok"/>
+                  <PriceIcon/>
+                </PriceInputDiv>
                 {PriceList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><RadioInput type="radio" id={val.id} value={val.text} checked={price === val.text} onChange={(e) => {setPrice(e.target.value);console.log(price)}}/>{val.text}</CheckBoxFullLabel>
+                  <CheckBoxFullLabel key={val.id}><RadioInput type="radio" id={val.id} value={val.text}
+                                                              checked={price === val.text} onChange={(e) => {
+                    setPrice(e.target.value);
+                    console.log(price)
+                  }}/>{val.text}</CheckBoxFullLabel>
                 )}
               </HiddenOptionFullDiv>
             )}
@@ -204,7 +233,6 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-
           <OptionContainer>
             <StickyOption onClick={() => setTrotterCategory(!trotterCategory)}>
               <OptionSpan>Paça Tipi</OptionSpan>
@@ -220,6 +248,140 @@ const Container = () => {
               </HiddenFullDiv>
             )}
           </OptionContainer>
+          <OptionContainer>
+            <StickyOption onClick={() => setPatternCategory(!patternCategory)}>
+              <OptionSpan>Kalıp</OptionSpan>
+              {patternCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
+            </StickyOption>
+            {patternCategory && (
+              <HiddenOptionFullDiv>
+                <SearchBrandInput placeholder="Kalıp ara"/>
+                {PatternList.map(val =>
+                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
+                  </CheckBoxFullLabel>
+                )}
+              </HiddenOptionFullDiv>
+            )}
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOption onClick={() => setMaterielCategory(!materielCategory)}>
+              <OptionSpan>Materyal</OptionSpan>
+              {materielCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
+            </StickyOption>
+            {materielCategory && (
+              <HiddenOptionFullDiv>
+                <SearchBrandInput placeholder="Materyal ara"/>
+                {MaterielList.map(val =>
+                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
+                  </CheckBoxFullLabel>
+                )}
+              </HiddenOptionFullDiv>
+            )}
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOption onClick={() => setWaistCategory(!waistCategory)}>
+              <OptionSpan>Bel</OptionSpan>
+              {waistCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
+            </StickyOption>
+            {waistCategory && (
+              <HiddenOptionFullDiv>
+                <CheckBoxFullLabel><CheckBoxInput type="checkbox" value="Normal Bel"/>Normal Bel</CheckBoxFullLabel>
+                <CheckBoxFullLabel><CheckBoxInput type="checkbox" value="Yüksek Bel"/>Yüksek Bel</CheckBoxFullLabel>
+              </HiddenOptionFullDiv>
+            )}
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOptionAlone>
+              <CheckBoxInputAlone type="checkbox" value="Kargo Bedava" onChange={handleCheckboxChange}/>
+              <OptionSpanAlone>Kargo Bedava</OptionSpanAlone>
+            </StickyOptionAlone>
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOption onClick={() => setUsageAreaCategory(!usageAreaCategory)}>
+              <OptionSpan>Kullanım Alanı</OptionSpan>
+              {usageAreaCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
+            </StickyOption>
+            {usageAreaCategory && (
+              <HiddenOptionFullDiv>
+                {usageAreaList.map(val =>
+                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
+                  </CheckBoxFullLabel>
+                )}
+              </HiddenOptionFullDiv>
+            )}
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOptionAlone>
+              <CheckBoxInputAlone type="checkbox" value="Fotoğraflı Yorumlar"/>
+              <OptionSpanAlone>Fotoğraflı Yorumlar</OptionSpanAlone>
+            </StickyOptionAlone>
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOptionAlone>
+              <CheckBoxInputAlone type="checkbox" value="9 Puan Üzeri Satıcılar"/>
+              <OptionSpanAlone>9 Puan Üzeri Satıcılar</OptionSpanAlone>
+            </StickyOptionAlone>
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOption onClick={() => setSellerTypeCategory(!sellerTypeCategory)}>
+              <OptionSpan>Satıcı Tipi</OptionSpan>
+              {sellerTypeCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
+            </StickyOption>
+            {sellerTypeCategory && (
+              <HiddenOptionFullDiv>
+                <CheckBoxFullLabel><CheckBoxInput type="checkbox" value="Onaylanmış Satıcı"/>Onaylanmış
+                  Satıcı</CheckBoxFullLabel>
+                <CheckBoxFullLabel><CheckBoxInput type="checkbox" value="Başarılı Satıcı"/>Başarılı
+                  Satıcı</CheckBoxFullLabel>
+              </HiddenOptionFullDiv>
+            )}
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOptionAlone>
+              <CheckBoxInputAlone type="checkbox" value="Hızlı Teslimat"/>
+              <OptionSpanAlone>Hızlı Teslimat</OptionSpanAlone>
+            </StickyOptionAlone>
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOptionAlone>
+              <CheckBoxInputAlone type="checkbox" value="9 Puan Üzeri Satıcılar"/>
+              <OptionSpanAlone>Kuponlu Ürünler</OptionSpanAlone>
+            </StickyOptionAlone>
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOptionAlone>
+              <CheckBoxInputAlone type="checkbox" value="9 Puan Üzeri Satıcılar" defaultChecked/>
+              <OptionSpanAlone>Birlikte Al Kazan</OptionSpanAlone>
+            </StickyOptionAlone>
+          </OptionContainer>
+          <OptionContainer>
+            <StickyOption onClick={() => setProductRatingCategory(!productRatingCategory)}>
+              <OptionSpan>Ürün Değerlendirmesi</OptionSpan>
+              {productRatingCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
+            </StickyOption>
+            {productRatingCategory && (
+              <HiddenOptionFullDiv>
+                {ProductRatingList.map(val =>
+                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
+                  </CheckBoxFullLabel>
+                )}
+              </HiddenOptionFullDiv>
+            )}
+          </OptionContainer>
+
+          <OptionContainer>
+            <StickyOptionAlone onClick={() => setChecked(!checked)}>
+              <CheckBoxInputAlone type="checkbox" value={"selam"} checked={checked} onChange={onChange}/>
+              <OptionSpanAlone>Videolu Ürü22n</OptionSpanAlone>
+            </StickyOptionAlone>
+          </OptionContainer>
+
+          {/*<OptionContainer>*/}
+          {/*  <StickyOptionAlone>*/}
+          {/*    <CheckBoxInputAlone type="checkbox" value="Videolu Ürün" />*/}
+          {/*    <OptionSpanAlone>Videolu Ürün</OptionSpanAlone>*/}
+          {/*  </StickyOptionAlone>*/}
+          {/*</OptionContainer>*/}
         </StickyLeftContainer>
       </CategoryContainer>
       <CardContainer>
