@@ -45,12 +45,11 @@ export const StickyOption = styled.div`
 `;
 
 export const StickyOptionAlone = styled.div`
-  padding: 15px 5px 5px 5px;
+  padding: 10px 5px;
   box-sizing: border-box;
   margin: 0 -5px;
   display: flex;
   cursor: pointer;
-  align-items: center;
   
   &:hover {
     background-color: rgb(246, 246, 246);
@@ -419,6 +418,7 @@ export const OptionSpanAlone = styled.label`
   margin: 0.2em;
   cursor: pointer;
   padding: 0.2em;
+  font-size: 13px;
 
   &:before {
   
@@ -430,7 +430,7 @@ export const OptionSpanAlone = styled.label`
     height: 0.7em;
     padding-left: 0.2em;
     padding-bottom: 0.3em;
-    margin-right: 0.2em;
+    margin-right: 0.3em;
     vertical-align: bottom;
     color: transparent;
     transition: .2s;

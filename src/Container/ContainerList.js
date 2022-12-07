@@ -12,6 +12,7 @@ const ContainerList = [
     video: false,
     coupon: true,
     discount: true,
+    type: "SweatPants"
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ const ContainerList = [
     video: true,
     coupon: true,
     discount: false,
+    type: "SweatPants"
   },
   {
     id: 3,
@@ -40,6 +42,7 @@ const ContainerList = [
     video: true,
     coupon: false,
     discount: false,
+    type: "SweatPants"
   },
   {
     id: 4,
@@ -54,6 +57,7 @@ const ContainerList = [
     video: false,
     coupon: false,
     discount: false,
+    type: "TrackSuit"
   },
   {
     id: 5,
@@ -68,6 +72,7 @@ const ContainerList = [
     video: false,
     coupon: true,
     discount: false,
+    type: "SweatPants"
   },
   {
     id: 6,
@@ -82,6 +87,7 @@ const ContainerList = [
     video: false,
     coupon: false,
     discount: true,
+    type: "TrackSuit"
   },
   {
     id: 7,
@@ -96,6 +102,7 @@ const ContainerList = [
     video: true,
     coupon: true,
     discount: false,
+    type: "SweatPants"
   },
   {
     id: 8,
@@ -110,6 +117,7 @@ const ContainerList = [
     video: false,
     coupon: false,
     discount: true,
+    type: "SweatPants"
   },
   {
     id: 9,
@@ -124,10 +132,11 @@ const ContainerList = [
     video: false,
     coupon: false,
     discount: false,
+    type: "TrackSuit"
   },
   {
     id: 10,
-    category: "woman",
+    category: "man",
     src: "https://cdn.dsmcdn.com/ty201/product/media/images/20211018/15/151687295/59472828/1/1_org_zoom.jpg",
     tag: "Tommy Life",
     name: "Yakalı Kol Garnili Lacivert Erkek Eşofman Takım",
@@ -138,6 +147,7 @@ const ContainerList = [
     video: true,
     coupon: false,
     discount: true,
+    type: "TrackSuit"
   }
 ]
 

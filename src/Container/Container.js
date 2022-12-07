@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import "./style.js"
 import {
   BodyContainer,
@@ -57,6 +57,7 @@ import {
 } from "../ArrayList/List";
 
 const Container = () => {
+  const [list, setList] = useState(ContainerList);
   const [category, setCategory] = useState(false);
   const [gender, setGender] = useState("");
   const [sweatPants, setSweatPants] = useState(false);
@@ -88,11 +89,57 @@ const Container = () => {
     setChecked(!checked);
   };
 
+  useEffect(() => {
+      trackSuitHandler()
+  }, [category]);
+
+  const trackSuitHandler = () => {
+    if (sweatPants && !isCheckedMan && !isCheckedWoman) {
+      setList(list.filter((item) => item.type === "SweatPants"));
+    } else if (sweatPants && isCheckedMan && isCheckedWoman) {
+      setList(list.filter((item) => item.type === "SweatPants"));
+    } else if (sweatPants && isCheckedMan && !isCheckedWoman) {
+      setList(list.filter((item) => item.type === "SweatPants" && item.category === "man"));
+    } else if (sweatPants && !isCheckedMan && isCheckedWoman) {
+      setList(list.filter((item) => item.type === "SweatPants" && item.category === "woman"));
+    } else if (trackSuit && !isCheckedMan && !isCheckedWoman) {
+      setList(list.filter((item) => item.type === "TrackSuit"));
+    } else if (trackSuit && isCheckedMan && isCheckedWoman) {
+      setList(list.filter((item) => item.type === "TrackSuit"));
+    } else if (trackSuit && isCheckedMan && !isCheckedWoman) {
+      setList(list.filter((item) => item.type === "TrackSuit" && item.category === "man"));
+    } else if (trackSuit && !isCheckedMan && isCheckedWoman) {
+      setList(list.filter((item) => item.type === "TrackSuit" && item.category === "woman"));
+    } else if (!sweatPants && !trackSuit && !isCheckedMan && !isCheckedWoman) setList(ContainerList)
+    else if (!sweatPants && !trackSuit && isCheckedMan && isCheckedWoman) setList(ContainerList)
+    else if (!sweatPants && !trackSuit && isCheckedMan && !isCheckedWoman) {
+      setList(ContainerList.filter((item) => item.category === "man"));
+    } else if (!sweatPants && !trackSuit && !isCheckedMan && isCheckedWoman) {
+      setList(ContainerList.filter((item) => item.category === "woman"));
+    }
+  };
+
   const handleCheckboxChange = event => {
+    let check = event.target.checked
+
     if (event.target.value === "Erkek") {
       setIsCheckedMan(event.target.checked);
-    } else {
+      if (check && isCheckedWoman) {
+        setList(ContainerList)
+      } else if (check && !isCheckedWoman) {
+        setList(list.filter((item) => item.category === "man"));
+      } else if (!check && isCheckedWoman) {
+        setList(list.filter((item) => item.category === "woman"));
+      } else setList(ContainerList)
+    } else if (event.target.value === "Kadın") {
       setIsCheckedWoman(event.target.checked);
+      if (check && isCheckedMan) {
+        setList(ContainerList)
+      } else if (check && !isCheckedMan) {
+        setList(list.filter((item) => item.category === "woman"));
+      } else if (!check && isCheckedMan) {
+        setList(list.filter((item) => item.category === "man"));
+      } else setList(ContainerList)
     }
     setGender(event.target.value);
   };
@@ -102,7 +149,7 @@ const Container = () => {
       <CategoryContainer>
         <StickyLeftContainer>
           <OptionContainer>
-            <StickyOption onClick={sweatPants || trackSuit ? "" : () => setCategory(!category)}>
+            <StickyOption onClick={sweatPants || trackSuit ? null : () => setCategory(!category)}>
               <OptionSpan>İlgili Kategoriler</OptionSpan>
               {category ? <OptionUpIcon/> : <OptionDownIcon/>}
             </StickyOption>
@@ -110,7 +157,7 @@ const Container = () => {
               <HiddenOptionDiv>
                 <HiddenOptionSpan onClick={() => {
                   setSweatPants(true);
-                  setCategory(false)
+                  setCategory(false);
                 }}>Eşofman Altı</HiddenOptionSpan>
                 <HiddenOptionSpan onClick={() => {
                   setTrackSuit(true);
@@ -372,7 +419,7 @@ const Container = () => {
           <OptionContainer>
             <StickyOptionAlone onClick={() => setChecked(!checked)}>
               <CheckBoxInputAlone type="checkbox" value={"selam"} checked={checked} onChange={onChange}/>
-              <OptionSpanAlone>Videolu Ürü22n</OptionSpanAlone>
+              <OptionSpanAlone>Videolu Ürün</OptionSpanAlone>
             </StickyOptionAlone>
           </OptionContainer>
 
@@ -395,7 +442,7 @@ const Container = () => {
           <DeliveryButton>Uygula</DeliveryButton>
         </FastDelivery>
         <ContainerInfo>
-          {ContainerList.map(val =>
+          {list.map(val =>
             <Cards>
               <ImageContainer><CardImage><Images src={val.src}></Images></CardImage></ImageContainer>
               <ProductDown>
