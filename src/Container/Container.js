@@ -51,15 +51,24 @@ import {
   ColoursList, GenderList,
   MaterielList,
   PatternList,
-  PriceList, ProductRatingList,
+  PriceList, ProductRatingList, SellerTypeList,
   StarProductList,
-  TrotterTypeList, usageAreaList
+  TrotterTypeList, UsageAreaList, WaistList
 } from "../ArrayList/List";
 
 const Container = () => {
   const [list, setList] = useState(ContainerList);
   const [brandListCopy, setBrandListCopy] = useState(BrandList)
   const [gender, setGender] = useState(GenderList);
+  const [bodySizeList, setBodySizeList] = useState(BodySizeList);
+  const [trotterTypeList, setTrotterTypeList] = useState(TrotterTypeList);
+  const [patternList, setPatternList] = useState(PatternList);
+  const [materiel, setMateriel] = useState(MaterielList);
+  const [waist, setWaist] = useState(WaistList);
+  const [usageArea, setUsageArea] = useState(UsageAreaList);
+  const [sellerTypeList, setSellerTypeList] = useState(SellerTypeList);
+  const [productRating, setProductRating] = useState(ProductRatingList);
+  const [starProduct, setStarProduct] = useState(StarProductList);
   const [price, setPrice] = useState("");
   const [sweatPants, setSweatPants] = useState(false);
   const [trackSuit, setTrackSuit] = useState(false);
@@ -100,6 +109,132 @@ const Container = () => {
     if (!val.brandChecked) {
       setList(ContainerList.filter((item) => item.BrandType === val.text));
     } else if (val.brandChecked) {
+      setList(ContainerList)
+    }
+  };
+
+  const bodySizeChange = (val) => {
+    if (bodySizeList.map(el => el.id === val.id)) {
+      setBodySizeList(bodySizeList.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.bodySize === val.text));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
+
+  const TrotterTypeHandler = (val) => {
+    if (trotterTypeList.map(el => el.id === val.id)) {
+      setTrotterTypeList(trotterTypeList.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.trotterType === val.text));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
+
+  const patternHandler = (val) => {
+    if (patternList.map(el => el.id === val.id)) {
+      setPatternList(patternList.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.pattern === val.text));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
+
+  const materialHandler = (val) => {
+    if (materiel.map(el => el.id === val.id)) {
+      setMateriel(materiel.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.materiel === val.text));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
+
+  const waistHandler = (val) => {
+    if (waist.map(el => el.id === val.id)) {
+      setWaist(waist.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.waistType === val.text));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
+
+  const usageAreaHandler = (val) => {
+    if (usageArea.map(el => el.id === val.id)) {
+      setUsageArea(usageArea.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.usageAreaType === val.text));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
+
+  const sellerTypeHandler = (val) => {
+    if (sellerTypeList.map(el => el.id === val.id)) {
+      setSellerTypeList(sellerTypeList.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.sellerType === val.text));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
+
+  const productRatingHandler = (val) => {
+    if (productRating.map(el => el.id === val.id)) {
+      setProductRating(productRating.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.productRating === val.text));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
+
+  const starProductHandler = (val) => {
+    if (starProduct.map(el => el.id === val.id)) {
+      setStarProduct(starProduct.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.starProduct === val.text));
+    } else if (val.isChecked) {
       setList(ContainerList)
     }
   };
@@ -219,9 +354,11 @@ const Container = () => {
             {bodySizeCategory && (
               <HiddenOptionFullDiv>
                 <SearchBrandInput placeholder="Beden ara"/>
-                {BodySizeList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
-                  </CheckBoxFullLabel>
+                {bodySizeList.map(val =>
+                  <EmptyDiv onClick={() => bodySizeChange(val)} key={val.id}>
+                  <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={bodySizeChange}/>
+                  <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
                 )}
               </HiddenOptionFullDiv>
             )}
@@ -270,9 +407,11 @@ const Container = () => {
             </StickyOption>
             {starCategory && (
               <HiddenOptionFullDiv>
-                {StarProductList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
-                  </CheckBoxFullLabel>
+                {starProduct.map(val =>
+                  <EmptyDiv onClick={() => starProductHandler(val)} key={val.id}>
+                  <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={starProductHandler}/>
+                  <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
                 )}
               </HiddenOptionFullDiv>
             )}
@@ -285,9 +424,11 @@ const Container = () => {
             {trotterCategory && (
               <HiddenFullDiv>
                 <SearchBrandInput placeholder="Paça Tipi ara"/>
-                {TrotterTypeList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
-                  </CheckBoxFullLabel>
+                {trotterTypeList.map(val =>
+                  <EmptyDiv onClick={() => TrotterTypeHandler(val)} key={val.id}>
+                  <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={TrotterTypeHandler}/>
+                  <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
                 )}
               </HiddenFullDiv>
             )}
@@ -300,9 +441,11 @@ const Container = () => {
             {patternCategory && (
               <HiddenOptionFullDiv>
                 <SearchBrandInput placeholder="Kalıp ara"/>
-                {PatternList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
-                  </CheckBoxFullLabel>
+                {patternList.map(val =>
+                  <EmptyDiv onClick={() => patternHandler(val)} key={val.id}>
+                  <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={patternHandler}/>
+                  <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
                 )}
               </HiddenOptionFullDiv>
             )}
@@ -315,9 +458,11 @@ const Container = () => {
             {materielCategory && (
               <HiddenOptionFullDiv>
                 <SearchBrandInput placeholder="Materyal ara"/>
-                {MaterielList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
-                  </CheckBoxFullLabel>
+                {materiel.map(val =>
+                  <EmptyDiv onClick={() => materialHandler(val)} key={val.id}>
+                  <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={materialHandler}/>
+                  <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
                 )}
               </HiddenOptionFullDiv>
             )}
@@ -329,8 +474,12 @@ const Container = () => {
             </StickyOption>
             {waistCategory && (
               <HiddenOptionFullDiv>
-                <CheckBoxFullLabel><CheckBoxInput type="checkbox" value="Normal Bel"/>Normal Bel</CheckBoxFullLabel>
-                <CheckBoxFullLabel><CheckBoxInput type="checkbox" value="Yüksek Bel"/>Yüksek Bel</CheckBoxFullLabel>
+                {waist.map(val =>
+                  <EmptyDiv onClick={() => waistHandler(val)} key={val.id}>
+                    <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={waistHandler}/>
+                    <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
+                )}
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
@@ -347,9 +496,11 @@ const Container = () => {
             </StickyOption>
             {usageAreaCategory && (
               <HiddenOptionFullDiv>
-                {usageAreaList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
-                  </CheckBoxFullLabel>
+                {usageArea.map(val =>
+                  <EmptyDiv onClick={() => usageAreaHandler(val)} key={val.id}>
+                  <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={usageAreaHandler}/>
+                  <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
                 )}
               </HiddenOptionFullDiv>
             )}
@@ -373,10 +524,12 @@ const Container = () => {
             </StickyOption>
             {sellerTypeCategory && (
               <HiddenOptionFullDiv>
-                <CheckBoxFullLabel><CheckBoxInput type="checkbox" value="Onaylanmış Satıcı"/>Onaylanmış
-                  Satıcı</CheckBoxFullLabel>
-                <CheckBoxFullLabel><CheckBoxInput type="checkbox" value="Başarılı Satıcı"/>Başarılı
-                  Satıcı</CheckBoxFullLabel>
+                {sellerTypeList.map(val =>
+                  <EmptyDiv onClick={() => sellerTypeHandler(val)} key={val.id}>
+                    <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={sellerTypeHandler}/>
+                    <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
+                )}
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
@@ -405,9 +558,11 @@ const Container = () => {
             </StickyOption>
             {productRatingCategory && (
               <HiddenOptionFullDiv>
-                {ProductRatingList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
-                  </CheckBoxFullLabel>
+                {productRating.map(val =>
+                  <EmptyDiv onClick={() => productRatingHandler(val)} key={val.id}>
+                  <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={productRatingHandler}/>
+                  <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
                 )}
               </HiddenOptionFullDiv>
             )}
