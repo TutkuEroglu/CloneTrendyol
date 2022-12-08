@@ -6,7 +6,7 @@ import {
   CardContainer,
   CardImage,
   Cards,
-  CategoryContainer, CheckBoxFullLabel, CheckBoxInput, CheckBoxInputAlone,
+  CategoryContainer, CheckBoxDoubleInput, CheckBoxFullLabel, CheckBoxInput, CheckBoxInputAlone,
   CheckBoxLabel, CircularColor, ColorDiv, ColorDivBg,
   ContainerDiv,
   ContainerInfo,
@@ -18,7 +18,7 @@ import {
   DeliverySpan,
   DiscountContect,
   DiscountIcon,
-  DiscountSpan,
+  DiscountSpan, EmptyDiv,
   FastDelivery, HiddenFullDiv,
   HiddenOptionDiv, HiddenOptionFullDiv,
   HiddenOptionSpan,
@@ -46,52 +46,64 @@ import {
 import ContainerList from "./ContainerList";
 import {formatStar} from "../Utils/starFormatter";
 import {
-  BodySize,
+  BodySizeList,
   BrandList,
-  Colours,
+  ColoursList, GenderList,
   MaterielList,
   PatternList,
   PriceList, ProductRatingList,
   StarProductList,
-  TrotterType, usageAreaList
+  TrotterTypeList, usageAreaList
 } from "../ArrayList/List";
 
 const Container = () => {
   const [list, setList] = useState(ContainerList);
-  const [category, setCategory] = useState(false);
-  const [gender, setGender] = useState("");
+  const [brandListCopy, setBrandListCopy] = useState(BrandList)
+  const [gender, setGender] = useState(GenderList);
+  const [price, setPrice] = useState("");
   const [sweatPants, setSweatPants] = useState(false);
   const [trackSuit, setTrackSuit] = useState(false);
   const [isCheckedWoman, setIsCheckedWoman] = useState(true);
   const [isCheckedMan, setIsCheckedMan] = useState(true);
-  const [brand, setBrand] = useState(false);
-  const [bodySize, setBodySize] = useState(false);
-  const [color, setColor] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [category, setCategory] = useState(false);
   const [priceCategory, setPriceCategory] = useState(false);
   const [starCategory, setStarCategory] = useState(false);
+  const [brandCategory, setBrandCategory] = useState(false);
+  const [bodySizeCategory, setBodySizeCategory] = useState(false);
   const [trotterCategory, setTrotterCategory] = useState(false);
+  const [colorCategory, setColorCategory] = useState(false);
+  const [genderCategory, setGenderCategory] = useState(false);
   const [patternCategory, setPatternCategory] = useState(false);
   const [materielCategory, setMaterielCategory] = useState(false);
   const [waistCategory, setWaistCategory] = useState(false);
   const [usageAreaCategory, setUsageAreaCategory] = useState(false);
   const [sellerTypeCategory, setSellerTypeCategory] = useState(false);
   const [productRatingCategory, setProductRatingCategory] = useState(false);
-  const [price, setPrice] = useState("");
 
-  const [checked, setChecked] = useState(false);
 
-  const onChange = event => {
-    if (event.target.checked) {
-      console.log('✅ Checkbox is checked');
-    } else {
-      console.log('⛔️ Checkbox is NOT checked');
-    }
+
+  const onChange = () => {
     setChecked(!checked);
   };
 
   useEffect(() => {
-      trackSuitHandler()
+    trackSuitHandler()
   }, [category]);
+
+  const brandChange = (val) => {
+    if (brandListCopy.map(el => el.id === val.id)) {
+      setBrandListCopy(brandListCopy.map(el => el.id === val.id ? {...el, brandChecked: !el.brandChecked} : {
+        ...el,
+        brandChecked: false
+      }))
+    }
+    if (!val.brandChecked) {
+      setList(ContainerList.filter((item) => item.BrandType === val.text));
+    } else if (val.brandChecked) {
+      setList(ContainerList)
+    }
+  };
 
   const trackSuitHandler = () => {
     if (sweatPants && !isCheckedMan && !isCheckedWoman) {
@@ -119,29 +131,31 @@ const Container = () => {
     }
   };
 
-  const handleCheckboxChange = event => {
-    let check = event.target.checked
-
-    if (event.target.value === "Erkek") {
-      setIsCheckedMan(event.target.checked);
-      if (check && isCheckedWoman) {
+  const handleCheckboxChange = val => {
+    if (val.text === "Erkek") {
+      setGender(gender.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {...el}))
+      setIsCheckedMan(!isCheckedMan);
+      if (!isCheckedMan && isCheckedWoman) {
         setList(ContainerList)
-      } else if (check && !isCheckedWoman) {
-        setList(list.filter((item) => item.category === "man"));
-      } else if (!check && isCheckedWoman) {
-        setList(list.filter((item) => item.category === "woman"));
-      } else setList(ContainerList)
-    } else if (event.target.value === "Kadın") {
-      setIsCheckedWoman(event.target.checked);
-      if (check && isCheckedMan) {
-        setList(ContainerList)
-      } else if (check && !isCheckedMan) {
-        setList(list.filter((item) => item.category === "woman"));
-      } else if (!check && isCheckedMan) {
-        setList(list.filter((item) => item.category === "man"));
-      } else setList(ContainerList)
+      } else if (!isCheckedMan && !isCheckedWoman) {
+        setList(list.filter((item) => item.category === "Erkek"));
+      } else if (isCheckedMan && isCheckedWoman) {
+        setList(list.filter((item) => item.category === "Kadın"));
+      } else if (isCheckedMan && !isCheckedWoman) {
+        setList(ContainerList);
+      }
     }
-    setGender(event.target.value);
+    if (val.text === "Kadın") {
+      setGender(gender.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {...el}))
+      setIsCheckedWoman(!isCheckedWoman);
+      if (!isCheckedWoman && isCheckedMan) {
+        setList(ContainerList)
+      } else if (!isCheckedWoman && !isCheckedMan) {
+        setList(list.filter((item) => item.category === "Kadın"));
+      } else if (isCheckedWoman && isCheckedMan) {
+        setList(list.filter((item) => item.category === "Erkek"));
+      } else if (isCheckedWoman && !isCheckedMan) setList(ContainerList)
+    }
   };
 
   return (
@@ -185,43 +199,47 @@ const Container = () => {
             )}
           </OptionContainer>
           <OptionContainer>
-            <StickyOption onClick={() => setGender(!gender)}>
+            <StickyOption onClick={() => setGenderCategory(!genderCategory)}>
               <OptionSpan>Cinsiyet</OptionSpan>
-              {gender ? <OptionUpIcon/> : <OptionDownIcon/>}
+              {genderCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
             </StickyOption>
-            {gender && (
+            {genderCategory && (
               <HiddenOptionDiv>
-                <CheckBoxLabel><CheckBoxInput type="checkbox" value="Kadın" checked={isCheckedWoman}
-                                              onChange={handleCheckboxChange}/>Kadın</CheckBoxLabel>
-                <CheckBoxLabel><CheckBoxInput type="checkbox" value="Erkek" checked={isCheckedMan}
-                                              onChange={handleCheckboxChange}/>Erkek</CheckBoxLabel>
+                {gender.map(val =>
+                  <EmptyDiv onClick={() => handleCheckboxChange(val)} key={val.id}>
+                    <CheckBoxDoubleInput type="checkbox" value={val.text} checked={val.text === "Erkek" ? isCheckedMan : isCheckedWoman} onChange={handleCheckboxChange}/>
+                    <CheckBoxLabel>{val.text}</CheckBoxLabel>
+                  </EmptyDiv>
+                )}
               </HiddenOptionDiv>
             )}
           </OptionContainer>
           <OptionContainer>
-            <StickyOption onClick={() => setBrand(!brand)}>
+            <StickyOption onClick={() => setBrandCategory(!brandCategory)}>
               <OptionSpan>Marka</OptionSpan>
-              {brand ? <OptionUpIcon/> : <OptionDownIcon/>}
+              {brandCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
             </StickyOption>
-            {brand && (
+            {brandCategory && (
               <HiddenOptionFullDiv>
                 <SearchBrandInput placeholder="Marka ara"/>
-                {BrandList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
-                  </CheckBoxFullLabel>
+                {brandListCopy.map(val =>
+                  <EmptyDiv onClick={() => brandChange(val)} key={val.id}>
+                    <CheckBoxInput type="checkbox" value={val.text} checked={val.brandChecked} onChange={brandChange}/>
+                    <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+                  </EmptyDiv>
                 )}
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
           <OptionContainer>
-            <StickyOption onClick={() => setBodySize(!bodySize)}>
+            <StickyOption onClick={() => setBodySizeCategory(!bodySizeCategory)}>
               <OptionSpan>Beden</OptionSpan>
-              {bodySize ? <OptionUpIcon/> : <OptionDownIcon/>}
+              {bodySizeCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
             </StickyOption>
-            {bodySize && (
+            {bodySizeCategory && (
               <HiddenOptionFullDiv>
                 <SearchBrandInput placeholder="Beden ara"/>
-                {BodySize.map(val =>
+                {BodySizeList.map(val =>
                   <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
                   </CheckBoxFullLabel>
                 )}
@@ -229,13 +247,13 @@ const Container = () => {
             )}
           </OptionContainer>
           <OptionContainer>
-            <StickyOption onClick={() => setColor(!color)}>
+            <StickyOption onClick={() => setColorCategory(!colorCategory)}>
               <OptionSpan>Renk</OptionSpan>
-              {color ? <OptionUpIcon/> : <OptionDownIcon/>}
+              {colorCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
             </StickyOption>
-            {color && (
+            {colorCategory && (
               <ColorDiv>
-                {Colours.map(val =>
+                {ColoursList.map(val =>
                   <ColorDivBg>
                     <CircularColor colour={val.colorText}></CircularColor>
                   </ColorDivBg>
@@ -257,10 +275,8 @@ const Container = () => {
                   <PriceIcon/>
                 </PriceInputDiv>
                 {PriceList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><RadioInput type="radio" id={val.id} value={val.text}
-                                                              checked={price === val.text} onChange={(e) => {
+                  <CheckBoxFullLabel key={val.id}><RadioInput type="radio" id={val.id} value={val.text} checked={price === val.text} onChange={(e) => {
                     setPrice(e.target.value);
-                    console.log(price)
                   }}/>{val.text}</CheckBoxFullLabel>
                 )}
               </HiddenOptionFullDiv>
@@ -288,7 +304,7 @@ const Container = () => {
             {trotterCategory && (
               <HiddenFullDiv>
                 <SearchBrandInput placeholder="Paça Tipi ara"/>
-                {TrotterType.map(val =>
+                {TrotterTypeList.map(val =>
                   <CheckBoxFullLabel key={val.id}><CheckBoxInput type="checkbox" value={val.text}/>{val.text}
                   </CheckBoxFullLabel>
                 )}
@@ -415,20 +431,12 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-
           <OptionContainer>
             <StickyOptionAlone onClick={() => setChecked(!checked)}>
               <CheckBoxInputAlone type="checkbox" value={"selam"} checked={checked} onChange={onChange}/>
               <OptionSpanAlone>Videolu Ürün</OptionSpanAlone>
             </StickyOptionAlone>
           </OptionContainer>
-
-          {/*<OptionContainer>*/}
-          {/*  <StickyOptionAlone>*/}
-          {/*    <CheckBoxInputAlone type="checkbox" value="Videolu Ürün" />*/}
-          {/*    <OptionSpanAlone>Videolu Ürün</OptionSpanAlone>*/}
-          {/*  </StickyOptionAlone>*/}
-          {/*</OptionContainer>*/}
         </StickyLeftContainer>
       </CategoryContainer>
       <CardContainer>
@@ -453,7 +461,6 @@ const Container = () => {
                 <PriceDiv>
                   <PriceSpan>{val.price} TL</PriceSpan>
                 </PriceDiv>
-
                 <CampaignDiv>
                   {val.video && (
                     <VideoContect><VideoIcon/><VideoSpan>Videolu Ürün</VideoSpan></VideoContect>
@@ -465,8 +472,6 @@ const Container = () => {
                     <DiscountContect><DiscountIcon/><DiscountSpan>Çok Al Az Öde</DiscountSpan></DiscountContect>
                   )}
                 </CampaignDiv>
-
-
               </ProductDown>
             </Cards>
           )}

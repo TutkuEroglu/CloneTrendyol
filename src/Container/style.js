@@ -374,16 +374,32 @@ export const CouponSpan = styled.span`
 `;
 
 export const CheckBoxFullLabel = styled.label`
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-left: 6px;
-  padding: 2px 0;
-  box-sizing: border-box;
+  display: block;
+  margin: 0.2em;
   cursor: pointer;
+  padding: 0.2em;
+  font-size: 13px;
+
+  &:before {
+    border: 0.1em solid #000;
+    border-radius: 0.2em;
+    display: inline-block;
+    content: '';
+    width: 0.7em;
+    height: 0.7em;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 0.3em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    opacity: 1;
+    background: url(https://cdn.dsmcdn.com/web/assets/check.svg) no-repeat center center;
+  }
+
+  &:active:before {
+    transform: scale(0);
+  }
 
   &:hover {
     color: #B5B5B5;
@@ -392,23 +408,68 @@ export const CheckBoxFullLabel = styled.label`
 
 export const CheckBoxInput = styled.input`
   margin-right: 5px;
+  display: none;
+
+  &:checked + ${CheckBoxFullLabel}:before {
+    color: #fff;
+    background-color: #f27a1a;
+    border: solid 1.5px #f27a1a;
+  }
+
+  &:checked:disabled + ${CheckBoxFullLabel}:before {
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
+  }
 `;
 
 export const CheckBoxLabel = styled.label`
+  display: block;
+  cursor: pointer;
   font-size: 13px;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-left: 6px;
-  padding: 1px 0;
-  box-sizing: border-box;
-  cursor: pointer;
+  min-height: 25px;
+  
+  &:before {
+    border: 0.1em solid #000;
+    border-radius: 0.2em;
+    display: inline-block;
+    content: '';
+    width: 0.7em;
+    height: 0.7em;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 0.3em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    opacity: 1;
+    background: url(https://cdn.dsmcdn.com/web/assets/check.svg) no-repeat center center;
+  }
 
+  &:active:before {
+    transform: scale(0);
+  }
+  
   &:hover {
     color: #B5B5B5;
+  }
+`;
+
+export const CheckBoxDoubleInput = styled.input`
+  margin-right: 5px;
+  display: none;
+
+  &:checked + ${CheckBoxLabel}:before {
+    color: #fff;
+    background-color: #f27a1a;
+    border: solid 1.5px #f27a1a;
+  }
+
+  &:checked:disabled + ${CheckBoxLabel}:before {
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
   }
 `;
 
@@ -462,6 +523,10 @@ export const CheckBoxInputAlone = styled.input`
 
 export const RadioInput = styled.input`
   margin-bottom: 3px;
+`;
+
+export const EmptyDiv = styled.div`
+  
 `;
 
 export const SearchBrandInput = styled.input`

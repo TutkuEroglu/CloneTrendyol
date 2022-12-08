@@ -2,66 +2,79 @@ export const BrandList = [
   {
     id:1,
     text:"Nike",
+    brandChecked: false,
   },
   {
     id: 2,
     text: "Defacto",
+    brandChecked: false,
   },
   {
     id:3,
     text:"TRENDYOLMILLA",
+    brandChecked: false,
   }
   ,
   {
     id:4,
     text:"adidas",
+    brandChecked: false,
   }
   ,
   {
     id:5,
     text:"Koton",
+    brandChecked: false,
   }
   ,
   {
     id:6,
     text:"Pull & Bear",
+    brandChecked: false,
   }
   ,
   {
     id:7,
     text:"Addax",
+    brandChecked: false,
   }
   ,
   {
     id:8,
     text:"Mavi",
+    brandChecked: false,
   }
   ,
   {
     id:9,
     text:"Puma",
+    brandChecked: false,
   },
   {
     id:10,
     text:"HUMMEL",
+    brandChecked: false,
   }
   ,
   {
     id:11,
     text:"Stradivarius",
+    brandChecked: false,
   },
   {
     id:12,
     text:"LC Waikiki",
+    brandChecked: false,
   }
   ,
   {
     id:13,
     text:"TRENDYOL MAN",
+    brandChecked: false,
   }
 ]
 
-export const BodySize = [
+export const BodySizeList = [
   {
     id:1,
     text:"XXS"
@@ -104,7 +117,7 @@ export const BodySize = [
   },
 ]
 
-export const Colours = [
+export const ColoursList = [
   {
     id:1,
     colorText:"#F5E0CC"
@@ -220,7 +233,7 @@ export const StarProductList = [
   },
 ]
 
-export const TrotterType = [
+export const TrotterTypeList = [
   {
     id:1,
     text:"Dar Paça"
@@ -228,7 +241,8 @@ export const TrotterType = [
   {
     id:2,
     text:"Fermuarlı Paça"
-  },{
+  },
+  {
     id:3,
     text:"Lastikli Paça"
   },
@@ -239,7 +253,8 @@ export const TrotterType = [
   {
     id:5,
     text:"Jogger"
-  },{
+  },
+  {
     id:6,
     text:"Boru Paça"
   },
@@ -389,12 +404,26 @@ export const ProductRatingList = [
   {
     id:2,
     text:"3 yıldız ve üzeri"
-  },{
+  },
+  {
     id:3,
     text:"2 yıldız ve üzeri"
   },
   {
     id:4,
     text:"1 yıldız ve üzeri"
+  }
+]
+
+export const GenderList = [
+  {
+    id:1,
+    text:"Kadın",
+    isChecked: true,
+  },
+  {
+    id:2,
+    text:"Erkek",
+    isChecked: true,
   }
 ]

@@ -1,7 +1,7 @@
 const ContainerList = [
   {
     id: 1,
-    category: "woman",
+    category: "Kadın",
     src: "https://cdn.dsmcdn.com/ty417/product/media/images/20220506/0/102443165/80327914/1/1_org_zoom.jpg",
     tag: "Hamuen",
     name: "Kadın Siyah Yanı Şeritli Cepli Eşofman Altı 89162",
@@ -12,11 +12,12 @@ const ContainerList = [
     video: false,
     coupon: true,
     discount: true,
-    type: "SweatPants"
+    type: "SweatPants",
+    BrandType: "Nike",
   },
   {
     id: 2,
-    category: "woman",
+    category: "Kadın",
     src: "https://cdn.dsmcdn.com/ty572/product/media/images/20221020/9/197769813/160445909/1/1_org_zoom.jpg",
     tag: "CAYA",
     name: "Kadın Siyah Renk Eşofman Altı",
@@ -27,11 +28,12 @@ const ContainerList = [
     video: true,
     coupon: true,
     discount: false,
-    type: "SweatPants"
+    type: "SweatPants",
+    BrandType: "Puma",
   },
   {
     id: 3,
-    category: "woman",
+    category: "Kadın",
     src: "https://cdn.dsmcdn.com/ty508/product/media/images/20220815/16/160229322/224779670/2/2_org_zoom.jpg",
     tag: "TRENDYOLMİLLA",
     name: "Antrasit Yıkamalı Wide Leg Eşofman Altı",
@@ -42,11 +44,12 @@ const ContainerList = [
     video: true,
     coupon: false,
     discount: false,
-    type: "SweatPants"
+    type: "SweatPants",
+    BrandType: "Mavi",
   },
   {
     id: 4,
-    category: "woman",
+    category: "Kadın",
     src: "https://cdn.dsmcdn.com/ty565/product/media/images/20221016/2/194629668/80256395/2/2_org_zoom.jpg",
     tag: "Addax",
     name: "Kadın Siyah Paçası Lastikli Eşofman",
@@ -57,11 +60,12 @@ const ContainerList = [
     video: false,
     coupon: false,
     discount: false,
-    type: "TrackSuit"
+    type: "TrackSuit",
+    BrandType: "Koton",
   },
   {
     id: 5,
-    category: "woman",
+    category: "Kadın",
     src: "https://cdn.dsmcdn.com/ty329/product/media/images/20220209/17/47599109/82766003/3/3_org_zoom.jpg",
     tag: "TRENDYOLMİLLA",
     name: "Gri Selanik Basic Örme Eşofman Altı",
@@ -72,11 +76,12 @@ const ContainerList = [
     video: false,
     coupon: true,
     discount: false,
-    type: "SweatPants"
+    type: "SweatPants",
+    BrandType: "adidas",
   },
   {
     id: 6,
-    category: "woman",
+    category: "Kadın",
     src: "https://cdn.dsmcdn.com/ty143/product/media/images/20210708/11/108255393/61599742/1/1_org_zoom.jpg",
     tag: "Miorre",
     name: "Unisex Sauna - Zayıflamaya Yardımcı Eşofman",
@@ -87,11 +92,12 @@ const ContainerList = [
     video: false,
     coupon: false,
     discount: true,
-    type: "TrackSuit"
+    type: "TrackSuit",
+    BrandType: "TRENDYOLMILLA",
   },
   {
     id: 7,
-    category: "man",
+    category: "Erkek",
     src: "https://cdn.dsmcdn.com/ty613/product/media/images/20221129/17/223897525/195866519/1/1_org_zoom.jpg",
     tag: "Tomris",
     name: "Siyah Dar Kalıp Jogger Eşofman Altı",
@@ -102,11 +108,12 @@ const ContainerList = [
     video: true,
     coupon: true,
     discount: false,
-    type: "SweatPants"
+    type: "SweatPants",
+    BrandType: "Defacto",
   },
   {
     id: 8,
-    category: "man",
+    category: "Erkek",
     src: "https://cdn.dsmcdn.com/ty356/product/media/images/20220309/16/66427906/120124808/1/1_org_zoom.jpg",
     tag: "MaesSE",
     name: "Erkek gri günlük eşofman altı jeans fashion",
@@ -117,11 +124,12 @@ const ContainerList = [
     video: false,
     coupon: false,
     discount: true,
-    type: "SweatPants"
+    type: "SweatPants",
+    BrandType: "TRENDYOLMILLA",
   },
   {
     id: 9,
-    category: "woman",
+    category: "Kadın",
     src: "https://cdn.dsmcdn.com/ty581/product/media/images/20221026/9/202614602/75953918/1/1_org_zoom.jpg",
     tag: "Addax",
     name: "Kadın Siyah Paçası Lastikli Eşofman",
@@ -132,11 +140,12 @@ const ContainerList = [
     video: false,
     coupon: false,
     discount: false,
-    type: "TrackSuit"
+    type: "TrackSuit",
+    BrandType: "Defacto",
   },
   {
     id: 10,
-    category: "man",
+    category: "Erkek",
     src: "https://cdn.dsmcdn.com/ty201/product/media/images/20211018/15/151687295/59472828/1/1_org_zoom.jpg",
     tag: "Tommy Life",
     name: "Yakalı Kol Garnili Lacivert Erkek Eşofman Takım",
@@ -147,7 +156,8 @@ const ContainerList = [
     video: true,
     coupon: false,
     discount: true,
-    type: "TrackSuit"
+    type: "TrackSuit",
+    BrandType: "Nike",
   }
 ]
 
