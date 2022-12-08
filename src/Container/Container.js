@@ -105,13 +105,16 @@ const Container = () => {
   };
 
   const trackSuitHandler = () => {
-    if ((sweatPants && !isCheckedMan && !isCheckedWoman) || (sweatPants && isCheckedMan && isCheckedWoman)) setList(list.filter((item) => item.type === "SweatPants"));
+    if (sweatPants && !isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants"));
+    else if (sweatPants && isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants"));
     else if (sweatPants && isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants" && item.category === "man"));
     else if (sweatPants && !isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants" && item.category === "woman"));
-    else if ((trackSuit && !isCheckedMan && !isCheckedWoman) || (trackSuit && isCheckedMan && isCheckedWoman)) setList(list.filter((item) => item.type === "TrackSuit"));
+    else if (trackSuit && !isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.type === "TrackSuit"));
+    else if (trackSuit && isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.type === "TrackSuit"));
     else if (trackSuit && isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.type === "TrackSuit" && item.category === "man"));
     else if (trackSuit && !isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.type === "TrackSuit" && item.category === "woman"));
-    else if ((!sweatPants && !trackSuit && !isCheckedMan && !isCheckedWoman) && (!sweatPants && !trackSuit && isCheckedMan && isCheckedWoman)) setList(ContainerList)
+    else if (!sweatPants && !trackSuit && !isCheckedMan && !isCheckedWoman) setList(ContainerList)
+    else if (!sweatPants && !trackSuit && isCheckedMan && isCheckedWoman) setList(ContainerList)
     else if (!sweatPants && !trackSuit && isCheckedMan && !isCheckedWoman) setList(ContainerList.filter((item) => item.category === "man"));
     else if (!sweatPants && !trackSuit && !isCheckedMan && isCheckedWoman) setList(ContainerList.filter((item) => item.category === "woman"));
   };
