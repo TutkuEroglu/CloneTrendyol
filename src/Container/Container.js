@@ -82,7 +82,6 @@ const Container = () => {
   const [productRatingCategory, setProductRatingCategory] = useState(false);
 
 
-
   const onChange = () => {
     setChecked(!checked);
   };
@@ -106,55 +105,35 @@ const Container = () => {
   };
 
   const trackSuitHandler = () => {
-    if (sweatPants && !isCheckedMan && !isCheckedWoman) {
-      setList(list.filter((item) => item.type === "SweatPants"));
-    } else if (sweatPants && isCheckedMan && isCheckedWoman) {
-      setList(list.filter((item) => item.type === "SweatPants"));
-    } else if (sweatPants && isCheckedMan && !isCheckedWoman) {
-      setList(list.filter((item) => item.type === "SweatPants" && item.category === "man"));
-    } else if (sweatPants && !isCheckedMan && isCheckedWoman) {
-      setList(list.filter((item) => item.type === "SweatPants" && item.category === "woman"));
-    } else if (trackSuit && !isCheckedMan && !isCheckedWoman) {
-      setList(list.filter((item) => item.type === "TrackSuit"));
-    } else if (trackSuit && isCheckedMan && isCheckedWoman) {
-      setList(list.filter((item) => item.type === "TrackSuit"));
-    } else if (trackSuit && isCheckedMan && !isCheckedWoman) {
-      setList(list.filter((item) => item.type === "TrackSuit" && item.category === "man"));
-    } else if (trackSuit && !isCheckedMan && isCheckedWoman) {
-      setList(list.filter((item) => item.type === "TrackSuit" && item.category === "woman"));
-    } else if (!sweatPants && !trackSuit && !isCheckedMan && !isCheckedWoman) setList(ContainerList)
+    if (sweatPants && !isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants"));
+    else if (sweatPants && isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants"));
+    else if (sweatPants && isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants" && item.category === "man"));
+    else if (sweatPants && !isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants" && item.category === "woman"));
+    else if (trackSuit && !isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.type === "TrackSuit"));
+    else if (trackSuit && isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.type === "TrackSuit"));
+    else if (trackSuit && isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.type === "TrackSuit" && item.category === "man"));
+    else if (trackSuit && !isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.type === "TrackSuit" && item.category === "woman"));
+    else if (!sweatPants && !trackSuit && !isCheckedMan && !isCheckedWoman) setList(ContainerList)
     else if (!sweatPants && !trackSuit && isCheckedMan && isCheckedWoman) setList(ContainerList)
-    else if (!sweatPants && !trackSuit && isCheckedMan && !isCheckedWoman) {
-      setList(ContainerList.filter((item) => item.category === "man"));
-    } else if (!sweatPants && !trackSuit && !isCheckedMan && isCheckedWoman) {
-      setList(ContainerList.filter((item) => item.category === "woman"));
-    }
+    else if (!sweatPants && !trackSuit && isCheckedMan && !isCheckedWoman) setList(ContainerList.filter((item) => item.category === "man"));
+    else if (!sweatPants && !trackSuit && !isCheckedMan && isCheckedWoman) setList(ContainerList.filter((item) => item.category === "woman"));
+
   };
 
   const handleCheckboxChange = val => {
     if (val.text === "Erkek") {
       setGender(gender.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {...el}))
       setIsCheckedMan(!isCheckedMan);
-      if (!isCheckedMan && isCheckedWoman) {
-        setList(ContainerList)
-      } else if (!isCheckedMan && !isCheckedWoman) {
-        setList(list.filter((item) => item.category === "Erkek"));
-      } else if (isCheckedMan && isCheckedWoman) {
-        setList(list.filter((item) => item.category === "Kadın"));
-      } else if (isCheckedMan && !isCheckedWoman) {
-        setList(ContainerList);
-      }
+      if ((!isCheckedMan && isCheckedWoman) || (isCheckedMan && !isCheckedWoman)) setList(ContainerList)
+      else if (!isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.category === "Erkek"));
+      else if (isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.category === "Kadın"));
     }
     if (val.text === "Kadın") {
       setGender(gender.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {...el}))
       setIsCheckedWoman(!isCheckedWoman);
-      if (!isCheckedWoman && isCheckedMan) {
-        setList(ContainerList)
-      } else if (!isCheckedWoman && !isCheckedMan) {
-        setList(list.filter((item) => item.category === "Kadın"));
-      } else if (isCheckedWoman && isCheckedMan) {
-        setList(list.filter((item) => item.category === "Erkek"));
-      } else if (isCheckedWoman && !isCheckedMan) setList(ContainerList)
+      if ((!isCheckedWoman && isCheckedMan) || (isCheckedWoman && !isCheckedMan)) setList(ContainerList)
+      else if (!isCheckedWoman && !isCheckedMan) setList(list.filter((item) => item.category === "Kadın"));
+      else if (isCheckedWoman && isCheckedMan) setList(list.filter((item) => item.category === "Erkek"));
     }
   };
 
@@ -207,7 +186,9 @@ const Container = () => {
               <HiddenOptionDiv>
                 {gender.map(val =>
                   <EmptyDiv onClick={() => handleCheckboxChange(val)} key={val.id}>
-                    <CheckBoxDoubleInput type="checkbox" value={val.text} checked={val.text === "Erkek" ? isCheckedMan : isCheckedWoman} onChange={handleCheckboxChange}/>
+                    <CheckBoxDoubleInput type="checkbox" value={val.text}
+                                         checked={val.text === "Erkek" ? isCheckedMan : isCheckedWoman}
+                                         onChange={handleCheckboxChange}/>
                     <CheckBoxLabel>{val.text}</CheckBoxLabel>
                   </EmptyDiv>
                 )}
@@ -275,7 +256,8 @@ const Container = () => {
                   <PriceIcon/>
                 </PriceInputDiv>
                 {PriceList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><RadioInput type="radio" id={val.id} value={val.text} checked={price === val.text} onChange={(e) => {
+                  <CheckBoxFullLabel key={val.id}><RadioInput type="radio" id={val.id} value={val.text}
+                                                              checked={price === val.text} onChange={(e) => {
                     setPrice(e.target.value);
                   }}/>{val.text}</CheckBoxFullLabel>
                 )}
@@ -451,7 +433,7 @@ const Container = () => {
         </FastDelivery>
         <ContainerInfo>
           {list.map(val =>
-            <Cards>
+            <Cards key={val.id}>
               <ImageContainer><CardImage><Images src={val.src}></Images></CardImage></ImageContainer>
               <ProductDown>
                 <ContainerDiv>
