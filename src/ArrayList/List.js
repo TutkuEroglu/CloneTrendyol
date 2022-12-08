@@ -77,43 +77,53 @@ export const BrandList = [
 export const BodySizeList = [
   {
     id:1,
-    text:"XXS"
+    text:"XXS",
+    isChecked: false,
   },
   {
     id:2,
-    text:"XS"
+    text:"XS",
+    isChecked: false,
   },
   {
     id:3,
-    text:"S"
+    text:"S",
+    isChecked: false,
   },
   {
     id:4,
-    text:"M"
+    text:"M",
+    isChecked: false,
   },
   {
     id:5,
-    text:"L"
+    text:"L",
+    isChecked: false,
   },
   {
     id:6,
-    text:"XL"
+    text:"XL",
+    isChecked: false,
   },
   {
     id:7,
-    text:"XXL"
+    text:"XXL",
+    isChecked: false,
   },
   {
     id:8,
-    text:"2XL"
+    text:"2XL",
+    isChecked: false,
   },
   {
     id:9,
-    text:"3XL"
+    text:"3XL",
+    isChecked: false,
   },
   {
     id:10,
-    text:"4XL"
+    text:"4XL",
+    isChecked: false,
   },
 ]
 
@@ -222,196 +232,280 @@ export const PriceList = [
 export const StarProductList = [
   {
     id:1,
-    text:"Üç Yıldızlı Ürün"
+    text:"Beş Yıldızlı Ürün",
+    isChecked: false,
   },
   {
     id:2,
-    text:"İki Yıldızlı Ürün"
-  },{
+    text:"Dört Yıldızlı Ürün",
+    isChecked: false,
+  },
+  {
     id:3,
-    text:"Bir Yıldızlı Ürün"
+    text:"Üç Yıldızlı Ürün",
+    isChecked: false,
+  },
+  {
+    id:4,
+    text:"İki Yıldızlı Ürün",
+    isChecked: false,
+  },{
+    id:5,
+    text:"Bir Yıldızlı Ürün",
+    isChecked: false,
   },
 ]
 
 export const TrotterTypeList = [
   {
     id:1,
-    text:"Dar Paça"
+    text:"Dar Paça",
+    isChecked: false,
   },
   {
     id:2,
-    text:"Fermuarlı Paça"
+    text:"Fermuarlı Paça",
+    isChecked: false,
   },
   {
     id:3,
-    text:"Lastikli Paça"
+    text:"Lastikli Paça",
+    isChecked: false,
   },
   {
     id:4,
-    text:"Normal Paça"
+    text:"Normal Paça",
+    isChecked: false,
   },
   {
     id:5,
-    text:"Jogger"
+    text:"Jogger",
+    isChecked: false,
   },
   {
     id:6,
-    text:"Boru Paça"
+    text:"Boru Paça",
+    isChecked: false,
   },
   {
     id:7,
-    text:"Lastiksiz Paça"
+    text:"Lastiksiz Paça",
+    isChecked: false,
   },
   {
     id:8,
-    text:"Geniş Paça"
+    text:"Geniş Paça",
+    isChecked: false,
   }
 ]
 
 export const PatternList = [
   {
     id:1,
-    text:"Büyük Beden"
+    text:"Büyük Beden",
+    isChecked: false,
   },
   {
     id:2,
-    text:"Normal"
-  },{
+    text:"Normal",
+    isChecked: false,
+  },
+  {
     id:3,
-    text:"Slim Fit"
+    text:"Slim Fit",
+    isChecked: false,
   },
   {
     id:4,
-    text:"Standart"
+    text:"Standart",
+    isChecked: false,
   },
   {
     id:5,
-    text:"Straight"
-  },{
+    text:"Straight",
+    isChecked: false,
+  },
+  {
     id:6,
-    text:"Comfort"
+    text:"Comfort",
+    isChecked: false,
   },
   {
     id:7,
-    text:"Fitted"
+    text:"Fitted",
+    isChecked: false,
   },
   {
     id:8,
-    text:"Jogger"
+    text:"Jogger",
+    isChecked: false,
   },
   {
     id:9,
-    text:"Wide Leg"
+    text:"Wide Leg",
+    isChecked: false,
   },
   {
     id:10,
-    text:"Basic"
+    text:"Basic",
+    isChecked: false,
   },
   {
     id:11,
-    text:"Slim"
+    text:"Slim",
+    isChecked: false,
   },
   {
     id:12,
-    text:"Regular Jogger"
+    text:"Regular Jogger",
+    isChecked: false,
   },
   {
     id:13,
-    text:"Relaxed"
+    text:"Relaxed",
+    isChecked: false,
   },
   {
     id:14,
-    text:"Oversize"
+    text:"Oversize",
+    isChecked: false,
   }
 ]
 
 export const MaterielList = [
   {
     id:1,
-    text:"Dalgıç Kumaş"
+    text:"Dalgıç Kumaş",
+    isChecked: false,
   },
   {
     id:2,
-    text:"Likra"
+    text:"Likra",
+    isChecked: false,
   },{
     id:3,
-    text:"Polycotton"
+    text:"Polycotton",
+    isChecked: false,
   },
   {
     id:4,
-    text:"Polyester"
+    text:"Polyester",
+    isChecked: false,
   },
   {
     id:5,
-    text:"Kadife"
+    text:"Kadife",
+    isChecked: false,
   },{
     id:6,
-    text:"Pamuklu"
+    text:"Pamuklu",
+    isChecked: false,
   },
   {
     id:7,
-    text:"Penye"
+    text:"Penye",
+    isChecked: false,
   },
   {
     id:8,
-    text:"Pamuk-Polyester-Elastan"
+    text:"Pamuk-Polyester-Elastan",
+    isChecked: false,
   },
   {
     id:9,
-    text:"Pamuk Karışımlı"
+    text:"Pamuk Karışımlı",
+    isChecked: false,
   },
   {
     id:10,
-    text:"Pamuk-Polyester"
+    text:"Pamuk-Polyester",
+    isChecked: false,
   },
   {
     id:11,
-    text:"%100 Organik Pamuk"
+    text:"%100 Organik Pamuk",
+    isChecked: false,
   },
   {
     id:12,
-    text:"Pamuk Polyester"
+    text:"Pamuk Polyester",
+    isChecked: false,
   },
   {
     id:13,
-    text:"100% Pamuk"
+    text:"100% Pamuk",
+    isChecked: false,
   },
 ]
 
-export const usageAreaList = [
+export const WaistList = [
   {
     id:1,
-    text:"Fitness / Antrenman"
+    text: "Normal Bel",
+    isChecked: false,
   },
   {
     id:2,
-    text:"Spor"
+    text: "Yüksek Bel",
+    isChecked: false,
+  }
+]
+
+export const UsageAreaList = [
+  {
+    id:1,
+    text:"Fitness / Antrenman",
+    isChecked: false,
+  },
+  {
+    id:2,
+    text:"Spor",
+    isChecked: false,
   },{
     id:3,
-    text:"Günlük"
+    text:"Günlük",
+    isChecked: false,
   },
   {
     id:4,
-    text:"Outdoor"
+    text:"Outdoor",
+    isChecked: false,
   }
 ]
 
 export const ProductRatingList = [
   {
     id:1,
-    text:"4 yıldız ve üzeri"
+    text:"4 yıldız ve üzeri",
+    isChecked: false,
   },
   {
     id:2,
-    text:"3 yıldız ve üzeri"
+    text:"3 yıldız ve üzeri",
+    isChecked: false,
   },
   {
     id:3,
-    text:"2 yıldız ve üzeri"
+    text:"2 yıldız ve üzeri",
+    isChecked: false,
   },
   {
     id:4,
-    text:"1 yıldız ve üzeri"
+    text:"1 yıldız ve üzeri",
+    isChecked: false,
+  }
+]
+
+export const SellerTypeList = [
+  {
+    id:1,
+    text:"Onaylanmış Satıcı",
+    isChecked: false,
+  },
+  {
+    id:2,
+    text:"Başarılı Satıcı",
+    isChecked: false,
   }
 ]
 
