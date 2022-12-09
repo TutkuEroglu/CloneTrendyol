@@ -30,7 +30,7 @@ import {
   OptionDownIcon,
   OptionSpan, OptionSpanAlone,
   OptionUpIcon,
-  PriceDiv, PriceDivSpan, PriceIcon, PriceInput, PriceInputDiv,
+  PriceDiv, PriceDivSpan, PriceIcon, PriceInput, PriceInputDiv, PriceLabel,
   PriceSpan,
   ProductDown, RadioInput, SearchBrandInput,
   SearchHeader,
@@ -55,6 +55,8 @@ import {
   StarProductList,
   TrotterTypeList, UsageAreaList, WaistList
 } from "../ArrayList/List";
+import {formatPrice} from "../Utils/formatPrice";
+import containerList from "./ContainerList";
 
 const Container = () => {
   const [list, setList] = useState(ContainerList);
@@ -69,12 +71,19 @@ const Container = () => {
   const [sellerTypeList, setSellerTypeList] = useState(SellerTypeList);
   const [productRating, setProductRating] = useState(ProductRatingList);
   const [starProduct, setStarProduct] = useState(StarProductList);
-  const [price, setPrice] = useState("");
+  const [priceList, setPriceList] = useState(PriceList);
+  const [coloursList, setColourList] = useState(ColoursList);
   const [sweatPants, setSweatPants] = useState(false);
   const [trackSuit, setTrackSuit] = useState(false);
+  const [togetherBuyWin, setTogetherBuyWin] = useState(false);
+  const [couponProduct, setCouponProduct] = useState(false);
+  const [fastDelivery, setFastDelivery] = useState(false);
+  const [ninePoint, setNinePoint] = useState(false);
   const [isCheckedWoman, setIsCheckedWoman] = useState(true);
   const [isCheckedMan, setIsCheckedMan] = useState(true);
-  const [checked, setChecked] = useState(false);
+  const [videoProduct, setVideoProduct] = useState(false);
+  const [picComment, setPicComment] = useState(false);
+  const [freeCargo, setFreeCargo] = useState(false);
   const [category, setCategory] = useState(false);
   const [priceCategory, setPriceCategory] = useState(false);
   const [starCategory, setStarCategory] = useState(false);
@@ -91,13 +100,83 @@ const Container = () => {
   const [productRatingCategory, setProductRatingCategory] = useState(false);
 
 
-  const onChange = () => {
-    setChecked(!checked);
+  const videoProductHandler = () => {
+    if (!videoProduct) {
+      setVideoProduct(true)
+      setList(ContainerList.filter((item) => item.video === true));
+    } else {
+      setVideoProduct(false)
+      setList(ContainerList)
+    }
+  };
+
+  const couponProductHandler = () => {
+    if (!couponProduct) {
+      setCouponProduct(true)
+      setList(ContainerList.filter((item) => item.coupon === true));
+    } else {
+      setCouponProduct(false)
+      setList(ContainerList)
+    }
+  };
+
+  const fastDeliveryHandler = () => {
+    if (!fastDelivery) {
+      setFastDelivery(true)
+      setList(ContainerList.filter((item) => item.fastDelivery === true));
+    } else {
+      setFastDelivery(false)
+      setList(ContainerList)
+    }
+  };
+
+  const ninePointHandler = () => {
+    if (!ninePoint) {
+      setNinePoint(true)
+      setList(ContainerList.filter((item) => item.ninePoint === true));
+    } else {
+      setNinePoint(false)
+      setList(ContainerList)
+    }
+  };
+
+  const picCommentHandler = () => {
+    if (!picComment) {
+      setPicComment(true)
+      setList(ContainerList.filter((item) => item.pictureComment === true));
+    } else {
+      setPicComment(false)
+      setList(ContainerList)
+    }
+  };
+
+  const freeCargoHandler = () => {
+    if (!freeCargo) {
+      setFreeCargo(true)
+      setList(ContainerList.filter((item) => item.freeCargo === true));
+    } else {
+      setFreeCargo(false)
+      setList(ContainerList)
+    }
   };
 
   useEffect(() => {
     trackSuitHandler()
   }, [category]);
+
+  const formatHandler = (val, x, y, z, e) => {
+    if (y.map(el => el.id === val.id)) {
+      x(y.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => z === 1 && (item.BrandType === val.text) || z === 2 && item.bodySize === val.text));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
 
   const brandChange = (val) => {
     if (brandListCopy.map(el => el.id === val.id)) {
@@ -239,6 +318,34 @@ const Container = () => {
     }
   };
 
+  const PriceHandler = (e, val) => {
+    if (priceList.map(el => el.id === val.id)) {
+      setPriceList(priceList.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+     if (!val.isChecked) {
+       setList(ContainerList.filter((item) => formatPrice(item.price) === val.text));
+     } else if (val.isChecked) {
+       setList(ContainerList)
+     }
+  };
+
+  const colorHandler = (val) => {
+    if (coloursList.map(el => el.id === val.id)) {
+      setColourList(coloursList.map(el => el.id === val.id ? {...el, isChecked: !el.isChecked} : {
+        ...el,
+        isChecked: false
+      }))
+    }
+    if (!val.isChecked) {
+      setList(ContainerList.filter((item) => item.color === val.colorText));
+    } else if (val.isChecked) {
+      setList(ContainerList)
+    }
+  };
+
   const trackSuitHandler = () => {
     if (sweatPants && !isCheckedMan && !isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants"));
     else if (sweatPants && isCheckedMan && isCheckedWoman) setList(list.filter((item) => item.type === "SweatPants"));
@@ -338,8 +445,8 @@ const Container = () => {
               <HiddenOptionFullDiv>
                 <SearchBrandInput placeholder="Marka ara"/>
                 {brandListCopy.map(val =>
-                  <EmptyDiv onClick={() => brandChange(val)} key={val.id}>
-                    <CheckBoxInput type="checkbox" value={val.text} checked={val.brandChecked} onChange={brandChange}/>
+                  <EmptyDiv onClick={() => formatHandler(val, setBrandListCopy, brandListCopy, 1)} key={val.id}>
+                    <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
                     <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
                   </EmptyDiv>
                 )}
@@ -355,8 +462,8 @@ const Container = () => {
               <HiddenOptionFullDiv>
                 <SearchBrandInput placeholder="Beden ara"/>
                 {bodySizeList.map(val =>
-                  <EmptyDiv onClick={() => bodySizeChange(val)} key={val.id}>
-                  <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={bodySizeChange}/>
+                  <EmptyDiv onClick={() => formatHandler(val, setBodySizeList, bodySizeList, 2)} key={val.id}>
+                  <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
                   <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
                   </EmptyDiv>
                 )}
@@ -370,9 +477,9 @@ const Container = () => {
             </StickyOption>
             {colorCategory && (
               <ColorDiv>
-                {ColoursList.map(val =>
-                  <ColorDivBg>
-                    <CircularColor colour={val.colorText}></CircularColor>
+                {coloursList.map(val =>
+                  <ColorDivBg key={val.id}>
+                    <CircularColor colour={val.colorText} onClick={() => colorHandler(val)}></CircularColor>
                   </ColorDivBg>
                 )}
               </ColorDiv>
@@ -391,11 +498,9 @@ const Container = () => {
                   <PriceInput placeholder="En Çok"/>
                   <PriceIcon/>
                 </PriceInputDiv>
-                {PriceList.map(val =>
-                  <CheckBoxFullLabel key={val.id}><RadioInput type="radio" id={val.id} value={val.text}
-                                                              checked={price === val.text} onChange={(e) => {
-                    setPrice(e.target.value);
-                  }}/>{val.text}</CheckBoxFullLabel>
+                {priceList.map(val =>
+                  <PriceLabel key={val.id}><RadioInput type="radio" id={val.id} value={val.text} checked={val.isChecked}
+                     onChange={(e) => PriceHandler(e.target.value, val)}/>{val.text}</PriceLabel>
                 )}
               </HiddenOptionFullDiv>
             )}
@@ -483,9 +588,9 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-          <OptionContainer>
+          <OptionContainer onClick={() => freeCargoHandler()}>
             <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="Kargo Bedava" onChange={handleCheckboxChange}/>
+              <CheckBoxInputAlone type="checkbox" value="Kargo Bedava" checked={freeCargo} onChange={freeCargoHandler}/>
               <OptionSpanAlone>Kargo Bedava</OptionSpanAlone>
             </StickyOptionAlone>
           </OptionContainer>
@@ -505,15 +610,15 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-          <OptionContainer>
+          <OptionContainer onClick={() => picCommentHandler()}>
             <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="Fotoğraflı Yorumlar"/>
+              <CheckBoxInputAlone type="checkbox" value="Fotoğraflı Yorumlar" checked={picComment} onChange={picCommentHandler}/>
               <OptionSpanAlone>Fotoğraflı Yorumlar</OptionSpanAlone>
             </StickyOptionAlone>
           </OptionContainer>
-          <OptionContainer>
+          <OptionContainer onClick={() => ninePointHandler()}>
             <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="9 Puan Üzeri Satıcılar"/>
+              <CheckBoxInputAlone type="checkbox" value="9 Puan Üzeri Satıcılar" checked={ninePoint} onChange={ninePointHandler}/>
               <OptionSpanAlone>9 Puan Üzeri Satıcılar</OptionSpanAlone>
             </StickyOptionAlone>
           </OptionContainer>
@@ -533,21 +638,21 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-          <OptionContainer>
+          <OptionContainer onClick={() => fastDeliveryHandler()}>
             <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="Hızlı Teslimat"/>
+              <CheckBoxInputAlone type="checkbox" value="Hızlı Teslimat" checked={fastDelivery} onChange={fastDeliveryHandler}/>
               <OptionSpanAlone>Hızlı Teslimat</OptionSpanAlone>
             </StickyOptionAlone>
           </OptionContainer>
-          <OptionContainer>
+          <OptionContainer onClick={() => couponProductHandler()}>
             <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="9 Puan Üzeri Satıcılar"/>
+              <CheckBoxInputAlone type="checkbox" value="Kuponlu Ürünler" checked={couponProduct} onChange={couponProductHandler}/>
               <OptionSpanAlone>Kuponlu Ürünler</OptionSpanAlone>
             </StickyOptionAlone>
           </OptionContainer>
-          <OptionContainer>
+          <OptionContainer onClick={() => setTogetherBuyWin(!togetherBuyWin)}>
             <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="9 Puan Üzeri Satıcılar" defaultChecked/>
+              <CheckBoxInputAlone type="checkbox" value="Birlikte Al Kazan" checked={togetherBuyWin} onChange={setTogetherBuyWin}/>
               <OptionSpanAlone>Birlikte Al Kazan</OptionSpanAlone>
             </StickyOptionAlone>
           </OptionContainer>
@@ -568,15 +673,15 @@ const Container = () => {
             )}
           </OptionContainer>
           <OptionContainer>
-            <StickyOptionAlone onClick={() => setChecked(!checked)}>
-              <CheckBoxInputAlone type="checkbox" value={"selam"} checked={checked} onChange={onChange}/>
+            <StickyOptionAlone onClick={() => videoProductHandler()}>
+              <CheckBoxInputAlone type="checkbox" value={"Videolu Ürün"} checked={videoProduct} onChange={videoProductHandler}/>
               <OptionSpanAlone>Videolu Ürün</OptionSpanAlone>
             </StickyOptionAlone>
           </OptionContainer>
         </StickyLeftContainer>
       </CategoryContainer>
       <CardContainer>
-        <SearchHeader>"Eşofman" araması için 100.000+ sonuç listeleniyor</SearchHeader>
+        <SearchHeader>"Eşofman" araması için {list.length} sonuç listeleniyor</SearchHeader>
         <FastDelivery>
           <Info>
             <TruckIcon/>

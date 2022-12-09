@@ -114,7 +114,7 @@ export const SelectedOptionSpan = styled.span`
 export const SelectedOptionBack = styled.span`
   font-family: source_sans_proregular;
   font-size: 13px;
-  padding: 5px 0;
+  padding: 20px 0 15px 0;
   box-sizing: border-box;
   color: #f27a1a;
   cursor: pointer;
@@ -377,19 +377,21 @@ export const CheckBoxFullLabel = styled.label`
   display: block;
   margin: 0.2em;
   cursor: pointer;
-  padding: 0.2em;
+  padding: 0.1em;
+  box-sizing: border-box;
   font-size: 13px;
+  color: #1b1b1b;
 
   &:before {
-    border: 0.1em solid #000;
+    border: 0.1em solid #d6d6d6;
     border-radius: 0.2em;
     display: inline-block;
     content: '';
-    width: 0.7em;
-    height: 0.7em;
+    width: 0.8em;
+    height: 0.8em;
     padding-left: 0.2em;
-    padding-bottom: 0.3em;
-    margin-right: 0.3em;
+    padding-bottom: 0.2em;
+    margin-right: 0.5em;
     vertical-align: bottom;
     color: transparent;
     transition: .2s;
@@ -404,6 +406,16 @@ export const CheckBoxFullLabel = styled.label`
   &:hover {
     color: #B5B5B5;
   }
+`;
+
+export const PriceLabel = styled.label`
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 6px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
 `;
 
 export const CheckBoxInput = styled.input`
@@ -427,19 +439,19 @@ export const CheckBoxLabel = styled.label`
   display: block;
   cursor: pointer;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 550;
   min-height: 25px;
   
   &:before {
-    border: 0.1em solid #000;
+    border: 0.1em solid #d6d6d6;
     border-radius: 0.2em;
     display: inline-block;
     content: '';
-    width: 0.7em;
-    height: 0.7em;
+    width: 1em;
+    height: 1em;
     padding-left: 0.2em;
-    padding-bottom: 0.3em;
-    margin-right: 0.3em;
+    padding-bottom: 0.2em;
+    margin-right: 0.5em;
     vertical-align: bottom;
     color: transparent;
     transition: .2s;
@@ -483,15 +495,15 @@ export const OptionSpanAlone = styled.label`
 
   &:before {
   
-    border: 0.1em solid #000;
+    border: 0.1em solid #d6d6d6;
     border-radius: 0.2em;
     display: inline-block;
     content: '';
-    width: 0.7em;
-    height: 0.7em;
+    width: 1em;
+    height: 1em;
     padding-left: 0.2em;
-    padding-bottom: 0.3em;
-    margin-right: 0.3em;
+    padding-bottom: 0.2em;
+    margin-right: 0.5em;
     vertical-align: bottom;
     color: transparent;
     transition: .2s;
@@ -523,6 +535,7 @@ export const CheckBoxInputAlone = styled.input`
 
 export const RadioInput = styled.input`
   margin-bottom: 3px;
+  margin-right: 5px;
 `;
 
 export const EmptyDiv = styled.div`
@@ -539,8 +552,8 @@ export const SearchBrandInput = styled.input`
   padding: 0 10px;
   box-sizing: border-box;
   position: sticky;
-  top: 0;
-  bottom: auto;
+  top: auto;
+  bottom: 0;
   outline: none;
 `;
 
