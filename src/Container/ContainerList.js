@@ -28,6 +28,7 @@ const ContainerList = [
     ninePoint: true,
     pictureComment: true,
     freeCargo: false,
+    buyWin: false,
   },
   {
     id: 2,
@@ -58,6 +59,7 @@ const ContainerList = [
     ninePoint: true,
     pictureComment: true,
     freeCargo: false,
+    buyWin: false,
   },
   {
     id: 3,
@@ -88,6 +90,7 @@ const ContainerList = [
     ninePoint: true,
     pictureComment: true,
     freeCargo: false,
+    buyWin: false,
   },
   {
     id: 4,
@@ -118,6 +121,7 @@ const ContainerList = [
     ninePoint: true,
     pictureComment: true,
     freeCargo: true,
+    buyWin: true,
   },
   {
     id: 5,
@@ -148,6 +152,7 @@ const ContainerList = [
     ninePoint: false,
     pictureComment: true,
     freeCargo: false,
+    buyWin: false,
   },
   {
     id: 6,
@@ -178,6 +183,7 @@ const ContainerList = [
     ninePoint: false,
     pictureComment: true,
     freeCargo: true,
+    buyWin: true,
   },
   {
     id: 7,
@@ -208,6 +214,7 @@ const ContainerList = [
     ninePoint: true,
     pictureComment: true,
     freeCargo: false,
+    buyWin: false,
   },
   {
     id: 8,
@@ -238,6 +245,7 @@ const ContainerList = [
     ninePoint: false,
     pictureComment: true,
     freeCargo: true,
+    buyWin: false,
   },
   {
     id: 9,
@@ -268,6 +276,7 @@ const ContainerList = [
     ninePoint: false,
     pictureComment: true,
     freeCargo: false,
+    buyWin: false,
   },
   {
     id: 10,
@@ -298,6 +307,7 @@ const ContainerList = [
     ninePoint: false,
     pictureComment: true,
     freeCargo: false,
+    buyWin: true,
   }
 ]
 
