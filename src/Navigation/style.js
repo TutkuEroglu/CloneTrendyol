@@ -8,6 +8,11 @@ align-items: center;
 justify-content: flex-start;
 font-family: 'Source Sans Pro', sans-serif;
 border-bottom: 1px solid #E8E8E8;
+  
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    height: 35px;
+    max-width: 390px;
+  }
 `;
 
 export const NavigationElements = styled.div`

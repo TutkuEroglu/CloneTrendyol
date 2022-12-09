@@ -8,7 +8,7 @@ import {ReactComponent as downarrow} from "../assets/svg/chevron-down.svg";
 import {ReactComponent as search} from "../assets/svg/search.svg";
 
 export const BodyContainer = styled.div`
-  min-width: 1200px;
+  width: 1200px;
   display: flex;
   font-family: 'Source Sans Pro', sans-serif;
 `;
@@ -71,7 +71,7 @@ export const OptionUpIcon = styled(uparrow)`
 
 export const OptionDownIcon = styled(downarrow)`
   margin-bottom: 10px;
-  color: #f27a1a;
+  color: #999;
 `;
 
 export const HiddenOptionDiv = styled.div`
@@ -121,7 +121,7 @@ export const SelectedOptionBack = styled.span`
 `;
 
 export const CardContainer = styled.div`
-  min-width: 1000px;
+  width: 1000px;
   padding: 20px 0;
   box-sizing: border-box;
   display: flex;
@@ -191,7 +191,6 @@ export const ContainerInfo = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 15px;
-  max-width: 1000px;
   width: 1000px;
 `;
 
