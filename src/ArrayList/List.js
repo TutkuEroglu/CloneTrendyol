@@ -130,92 +130,92 @@ export const BodySizeList = [
 export const ColoursList = [
   {
     id:1,
-    colorText:"#F5E0CC",
+    text:"#F5E0CC",
     isChecked: false,
   },
   {
     id:2,
-    colorText:"#FFFFFF",
+    text:"#FFFFFF",
     isChecked: false,
   },
   {
     id:3,
-    colorText:"#A52C36",
+    text:"#A52C36",
     isChecked: false,
   },
   {
     id:4,
-    colorText:"#EDE9DE",
+    text:"#EDE9DE",
     isChecked: false,
   },
   {
     id:5,
-    colorText:"#DDDDDD",
+    text:"#DDDDDD",
     isChecked: false,
   },
   {
     id:6,
-    colorText:"#8B9955",
+    text:"#8B9955",
     isChecked: false,
   },
   {
     id:7,
-    colorText:"#8B572A",
+    text:"#8B572A",
     isChecked: false,
   },
   {
     id:8,
-    colorText:"#DE001B",
+    text:"#DE001B",
     isChecked: false,
   },
   {
     id:9,
-    colorText:"#1F3897",
+    text:"#1F3897",
     isChecked: false,
   },
   {
     id:10,
-    colorText:"#71B2FF",
+    text:"#71B2FF",
     isChecked: false,
   },
   {
     id:11,
-    colorText:"#8331CC",
+    text:"#8331CC",
     isChecked: false,
   },
   {
     id:12,
-    colorText:"#FFA8E7",
+    text:"#FFA8E7",
     isChecked: false,
   },
   {
     id:13,
-    colorText:"#FFE500",
+    text:"#FFE500",
     isChecked: false,
   },
   {
     id:14,
-    colorText:"#565656",
+    text:"#565656",
     isChecked: false,
   },
   {
     id:15,
-    colorText:"#46C49E",
+    text:"#46C49E",
     isChecked: false,
   },
   {
     id:16,
-    colorText:"#F5A623",
+    text:"#F5A623",
     isChecked: false,
   },
   {
     id:17,
-    colorText:"#7ED321",
+    text:"#7ED321",
     isChecked: false,
   },
   {
     id:18,
-    colorText:"linear-gradient(90deg, #fa4750 0%, #e24597 13%, #a550ff 25%, #6c7ff8 38%, #70bbfd 50%, #2effd4 61%, #57e4a0 73%, #d2ab48 86%, #fdde0a 100%)"
+    text:"linear-gradient(90deg, #fa4750 0%, #e24597 13%, #a550ff 25%, #6c7ff8 38%, #70bbfd 50%, #2effd4 61%, #57e4a0 73%, #d2ab48 86%, #fdde0a 100%)"
   },
 ]
 
