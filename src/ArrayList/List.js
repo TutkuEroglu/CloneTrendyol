@@ -2,75 +2,75 @@ export const BrandList = [
   {
     id:1,
     text:"Nike",
-    brandChecked: false,
+    isChecked: false,
   },
   {
     id: 2,
     text: "Defacto",
-    brandChecked: false,
+    isChecked: false,
   },
   {
     id:3,
     text:"TRENDYOLMILLA",
-    brandChecked: false,
+    isChecked: false,
   }
   ,
   {
     id:4,
     text:"adidas",
-    brandChecked: false,
+    isChecked: false,
   }
   ,
   {
     id:5,
     text:"Koton",
-    brandChecked: false,
+    isChecked: false,
   }
   ,
   {
     id:6,
     text:"Pull & Bear",
-    brandChecked: false,
+    isChecked: false,
   }
   ,
   {
     id:7,
     text:"Addax",
-    brandChecked: false,
+    isChecked: false,
   }
   ,
   {
     id:8,
     text:"Mavi",
-    brandChecked: false,
+    isChecked: false,
   }
   ,
   {
     id:9,
     text:"Puma",
-    brandChecked: false,
+    isChecked: false,
   },
   {
     id:10,
     text:"HUMMEL",
-    brandChecked: false,
+    isChecked: false,
   }
   ,
   {
     id:11,
     text:"Stradivarius",
-    brandChecked: false,
+    isChecked: false,
   },
   {
     id:12,
     text:"LC Waikiki",
-    brandChecked: false,
+    isChecked: false,
   }
   ,
   {
     id:13,
     text:"TRENDYOL MAN",
-    brandChecked: false,
+    isChecked: false,
   }
 ]
 
@@ -130,71 +130,88 @@ export const BodySizeList = [
 export const ColoursList = [
   {
     id:1,
-    colorText:"#F5E0CC"
+    colorText:"#F5E0CC",
+    isChecked: false,
   },
   {
     id:2,
-    colorText:"#FFFFFF"
+    colorText:"#FFFFFF",
+    isChecked: false,
   },
   {
     id:3,
-    colorText:"#A52C36"
+    colorText:"#A52C36",
+    isChecked: false,
   },
   {
     id:4,
-    colorText:"#EDE9DE"
+    colorText:"#EDE9DE",
+    isChecked: false,
   },
   {
     id:5,
-    colorText:"#DDDDDD"
+    colorText:"#DDDDDD",
+    isChecked: false,
   },
   {
     id:6,
-    colorText:"#8B9955"
+    colorText:"#8B9955",
+    isChecked: false,
   },
   {
     id:7,
-    colorText:"#8B572A"
+    colorText:"#8B572A",
+    isChecked: false,
   },
   {
     id:8,
-    colorText:"#DE001B"
+    colorText:"#DE001B",
+    isChecked: false,
   },
   {
     id:9,
-    colorText:"#1F3897"
+    colorText:"#1F3897",
+    isChecked: false,
   },
   {
     id:10,
-    colorText:"#71B2FF"
+    colorText:"#71B2FF",
+    isChecked: false,
   },
   {
     id:11,
-    colorText:"#8331CC"
+    colorText:"#8331CC",
+    isChecked: false,
   },
   {
     id:12,
-    colorText:"#FFA8E7"
+    colorText:"#FFA8E7",
+    isChecked: false,
   },
   {
     id:13,
-    colorText:"#FFE500"
+    colorText:"#FFE500",
+    isChecked: false,
   },
   {
     id:14,
-    colorText:"#565656"
+    colorText:"#565656",
+    isChecked: false,
   },
   {
     id:15,
-    colorText:"#46C49E"
+    colorText:"#46C49E",
+    isChecked: false,
   },
   {
     id:16,
-    colorText:"#F5A623"
+    colorText:"#F5A623",
+    isChecked: false,
   },
   {
     id:17,
-    colorText:"#7ED321"
+    colorText:"#7ED321",
+    isChecked: false,
   },
   {
     id:18,
@@ -205,27 +222,33 @@ export const ColoursList = [
 export const PriceList = [
   {
     id:1,
-    text:"0 TL - 125 TL"
+    text:"0 TL - 125 TL",
+    isChecked: false,
   },
   {
     id:2,
-    text:"125 TL - 200 TL"
+    text:"125 TL - 200 TL",
+    isChecked: false,
   },
   {
     id:3,
-    text:"200 TL - 350 TL"
+    text:"200 TL - 350 TL",
+    isChecked: false,
   },
   {
     id:4,
-    text:"350 TL - 500 TL"
+    text:"350 TL - 500 TL",
+    isChecked: false,
   },
   {
     id:5,
-    text:"500 TL - 1250 TL"
+    text:"500 TL - 1250 TL",
+    isChecked: false,
   },
   {
     id:6,
-    text:"1250 TL - 15000 TL"
+    text:"1250 TL - 15000 TL",
+    isChecked: false,
   }
 ]
 
