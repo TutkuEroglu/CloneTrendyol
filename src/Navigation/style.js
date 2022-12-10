@@ -8,10 +8,15 @@ align-items: center;
 justify-content: flex-start;
 font-family: 'Source Sans Pro', sans-serif;
 border-bottom: 1px solid #E8E8E8;
+
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.lg}px`}) {
+    max-width: 1200px;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
   
   @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
-    height: 35px;
-    max-width: 390px;
+    max-width: 775px;
   }
 `;
 
@@ -32,5 +37,9 @@ cursor: pointer;
     background:linear-gradient(#F27A1A,#F27A1A) no-repeat;
     background-size:100% 1px;
     background-position:bottom;
+  }
+
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    font-size: 10px;
   }
 `;

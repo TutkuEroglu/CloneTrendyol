@@ -8,10 +8,21 @@ import { ReactComponent as heart } from "../assets/svg/heart.svg";
 import { ReactComponent as heartfill } from "../assets/svg/heart-fill.svg";
 
 export const HeaderApp = styled.div`
-  height: 86px;
+  max-height: 86px;
   width: 1200px;
   font-family: "Source Sans Pro", sans-serif;
   background-color: ${({ theme }) => theme.colors.whiteBg};
+  
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.lg}px`}) {
+    max-width: 1200px;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    max-width: 775px;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
 `;
 
 export const TopHeader = styled.div`
@@ -75,6 +86,10 @@ export const MiddleHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    max-width: 220px;
+  }
 `;
 
 export const MiddleInput = styled.input`
@@ -91,7 +106,7 @@ export const MiddleInput = styled.input`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.inputBg};
   color: ${({ theme }) => theme.colors.inputColor};
-
+  
   &:focus {
     border-color: ${({ theme }) => theme.colors.newOrange};
     transition: all ease 0.3s;
@@ -117,6 +132,8 @@ export const SearchIcon = styled.div`
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.iconBg};
   cursor: pointer;
+
+  
 `;
 
 export const StickyHeaderButtons = styled.div`

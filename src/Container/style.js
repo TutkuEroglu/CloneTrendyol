@@ -11,11 +11,26 @@ export const BodyContainer = styled.div`
   width: 1200px;
   display: flex;
   font-family: 'Source Sans Pro', sans-serif;
+
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.lg}px`}) {
+    max-width: 1200px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    max-width: 775px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 `;
 
 export const CategoryContainer = styled.div`
   width: 220px;
   margin-right: 10px;
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    max-width: 150px;
+  }
 `;
 
 export const StickyLeftContainer = styled.div`
@@ -126,6 +141,10 @@ export const CardContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    max-width: 580px;
+  }
 `;
 
 export const SearchHeader = styled.span`
@@ -192,6 +211,15 @@ export const ContainerInfo = styled.div`
   flex-wrap: wrap;
   margin-bottom: 15px;
   width: 1000px;
+  
+  
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.lg}px`}) {
+    max-width: 800px;
+  }
+
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    max-width: 580px;
+  }
 `;
 
 export const Cards = styled.div`
@@ -204,7 +232,7 @@ export const Cards = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   cursor: pointer;
-
+  
   &:hover {
     box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
@@ -214,7 +242,14 @@ export const Cards = styled.div`
     box-shadow: none;
     transition: all 0.2s ease-in;
   }
-
+  
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.lg}px`}) {
+    margin-left: 35px;
+  }
+  
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    
+  }
 `;
 
 export const ImageContainer = styled.div`
