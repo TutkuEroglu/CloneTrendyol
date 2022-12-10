@@ -1,16 +1,18 @@
-import "./App.css";
+
 import React from "react";
 import Header from "./Header/Header";
 import NavigationContainer from "./Navigation/Navigation";
 import Container from "./Container/Container";
+import "./style.js"
+import {AppContainer} from "./style";
 
 function App() {
   return (
-    <div className="App">
+    <AppContainer>
       <Header />
       <NavigationContainer />
       <Container />
-    </div>
+    </AppContainer>
   );
 }
 
