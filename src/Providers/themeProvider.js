@@ -24,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: ${({ theme }) => theme.fonts.regular};
+    margin: 0;
   }
 `;
 
