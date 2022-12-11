@@ -35,8 +35,8 @@ export const CategoryContainer = styled.div`
 
 export const StickyLeftContainer = styled.div`
   position: sticky;
-  top: 0;
-  bottom: auto;
+  top: -250px;
+  bottom: 0;
 `;
 
 export const OptionContainer = styled.div`
