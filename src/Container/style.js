@@ -270,6 +270,7 @@ export const Images = styled.img`
   border-top-right-radius: 8px;
   width: 229px;
   height: 347px;
+  
 
   &:hover {
     transform: scale(1.043);
@@ -281,6 +282,69 @@ export const Images = styled.img`
     transform: scale(1);
     transition: all 0.2s ease-in;
   }
+`;
+
+export const ImageOverlayHeader = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  margin: 3px;
+  z-index: 10;
+`;
+
+export const FastDeliveryDiv = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+  margin: 5px 0 0 5px !important;
+  border-radius: 3px;
+  width: 56px !important;
+  height: 25px !important;
+  box-sizing: border-box;
+  font: 10px/10px source_sans_prosemibold !important;
+  color: #fff;
+  text-align: center;
+  background-color: #3ec461;
+`;
+
+export const FreeDeliveryDiv = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+  margin: 5px 0 0 5px !important;
+  border-radius: 3px;
+  width: 56px !important;
+  height: 25px !important;
+  box-sizing: border-box;
+  font: 10px/10px source_sans_prosemibold !important;
+  color: #fff;
+  text-align: center;
+  background-color: #535353;
+`;
+
+export const LikeButtonDiv = styled.div`
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  z-index: 10;
+`;
+
+export const LikeButton = styled.i`
+  float: left;
+  width: 43px;
+  height: 43px;
+  background: url(https://cdn.dsmcdn.com/web/production/favorite-heart.svg) no-repeat;
+  
+  &:hover {
+    background: url(https://cdn.dsmcdn.com/web/assets/favorite-heart-hover.svg) no-repeat;
+  }
+`;
+
+export const StarProductImg = styled.img`
+  width: 58px;
+  height: 58px;
+  margin: 5px 0 0 5px !important;
 `;
 
 export const ProductDown = styled.div`
