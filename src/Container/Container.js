@@ -19,7 +19,7 @@ import {
   DiscountContect,
   DiscountIcon,
   DiscountSpan, EmptyDiv,
-  FastDelivery, FastDeliveryDiv, FreeDeliveryDiv, HiddenFullDiv,
+  FastDelivery, FastDeliveryDiv, FreeDeliveryDiv,
   HiddenOptionDiv, HiddenOptionFullDiv,
   HiddenOptionSpan,
   ImageContainer, ImageOverlayHeader,
@@ -103,13 +103,47 @@ const Container = () => {
   const [sellerTypeCategory, setSellerTypeCategory] = useState(false);
   const [productRatingCategory, setProductRatingCategory] = useState(false);
 
+  const formatInputDiv = (setCategory, getCategory, SpanText, setClassList, getClassList, setClass, getClass, RealList, IdNumber) => {
+    return (
+      <OptionContainer>
+        <StickyOption onClick={() => setCategory(!getCategory)}>
+          <OptionSpan>{SpanText}</OptionSpan>
+          {getCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
+        </StickyOption>
+        {getCategory && (
+          <HiddenOptionFullDiv>
+            <SearchBrandInput type="search" placeholder={`${SpanText} ara`}
+                              onChange={(e) => inputChange(e, setClassList, getClassList, setClass, getClass, RealList)}/>
+            {getClassList.map(val =>
+              <EmptyDiv onClick={() => formatHandler(val, setClassList, getClassList, IdNumber)} key={val.id}>
+                <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
+                <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
+              </EmptyDiv>
+            )}
+          </HiddenOptionFullDiv>
+        )}
+      </OptionContainer>
+    )
+  }
+
+  const formatSingleDiv = (setClass, getClass, IdNumber, valueText, checkText) => {
+    return (
+      <OptionContainer onClick={() => SingleFormatter(setClass, getClass, IdNumber)}>
+        <StickyOptionAlone>
+          <CheckBoxInputAlone type="checkbox" value={valueText} checked={checkText} onChange={SingleFormatter}/>
+          <OptionSpanAlone>{valueText}</OptionSpanAlone>
+        </StickyOptionAlone>
+      </OptionContainer>
+    )
+  }
+
   const inputChange = (e, setClassList, getClassList, setClass, getClass, DoneList) => {
     setClass(e.target.value)
-    if (e.target.value === "" || e.target.value === " " || getClass === "" || getClass === " ") setClassList(DoneList)
+    if ((e.target.value || getClass === "") || (e.target.value || getClass === " ")) setClassList(DoneList)
     else setClassList(getClassList.filter(el => el.text.toLowerCase().includes(e.target.value.toLowerCase())))
   }
 
-   const SingleFormatter = (setClass, getClass, IdNumber) => {
+  const SingleFormatter = (setClass, getClass, IdNumber) => {
     if (!getClass) {
       setClass(true)
       if (IdNumber === 1) setList(ContainerList.filter((item) => item.freeCargo === true))
@@ -244,40 +278,8 @@ const Container = () => {
               </HiddenOptionDiv>
             )}
           </OptionContainer>
-          <OptionContainer>
-            <StickyOption onClick={() => setBrandCategory(!brandCategory)}>
-              <OptionSpan>Marka</OptionSpan>
-              {brandCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
-            </StickyOption>
-            {brandCategory && (
-              <HiddenOptionFullDiv>
-                <SearchBrandInput type="search" placeholder="Marka ara" onChange={(e) => inputChange(e,setBrandListCopy,brandListCopy, setBrand, brand, BrandList)}/>
-                {brandListCopy.map(val =>
-                  <EmptyDiv onClick={() => formatHandler(val, setBrandListCopy, brandListCopy, 1)} key={val.id}>
-                    <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
-                    <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
-                  </EmptyDiv>
-                )}
-              </HiddenOptionFullDiv>
-            )}
-          </OptionContainer>
-          <OptionContainer>
-            <StickyOption onClick={() => setBodySizeCategory(!bodySizeCategory)}>
-              <OptionSpan>Beden</OptionSpan>
-              {bodySizeCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
-            </StickyOption>
-            {bodySizeCategory && (
-              <HiddenOptionFullDiv>
-                <SearchBrandInput type="search" placeholder="Beden ara" onChange={(e) => inputChange(e,setBodySizeList,bodySizeList, setBodySize, bodySize, BodySizeList)}/>
-                {bodySizeList.map(val =>
-                  <EmptyDiv onClick={() => formatHandler(val, setBodySizeList, bodySizeList, 2)} key={val.id}>
-                    <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
-                    <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
-                  </EmptyDiv>
-                )}
-              </HiddenOptionFullDiv>
-            )}
-          </OptionContainer>
+          {formatInputDiv(setBrandCategory, brandCategory, "Marka", setBrandListCopy, brandListCopy, setBrand, brand, BrandList, 1)}
+          {formatInputDiv(setBodySizeCategory, bodySizeCategory, "Beden", setBodySizeList, bodySizeList, setBodySize, bodySize, BodySizeList, 2)}
           <OptionContainer>
             <StickyOption onClick={() => setColorCategory(!colorCategory)}>
               <OptionSpan>Renk</OptionSpan>
@@ -331,57 +333,9 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-          <OptionContainer>
-            <StickyOption onClick={() => setTrotterCategory(!trotterCategory)}>
-              <OptionSpan>Paça Tipi</OptionSpan>
-              {trotterCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
-            </StickyOption>
-            {trotterCategory && (
-              <HiddenFullDiv>
-                <SearchBrandInput type="search" placeholder="Paça Tipi ara" onChange={(e) => inputChange(e,setTrotterTypeList,trotterTypeList, setTrotterType, trotterType, TrotterTypeList)}/>
-                {trotterTypeList.map(val =>
-                  <EmptyDiv onClick={() => formatHandler(val, setTrotterTypeList, trotterTypeList, 6)} key={val.id}>
-                    <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
-                    <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
-                  </EmptyDiv>
-                )}
-              </HiddenFullDiv>
-            )}
-          </OptionContainer>
-          <OptionContainer>
-            <StickyOption onClick={() => setPatternCategory(!patternCategory)}>
-              <OptionSpan>Kalıp</OptionSpan>
-              {patternCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
-            </StickyOption>
-            {patternCategory && (
-              <HiddenOptionFullDiv>
-                <SearchBrandInput type="search" placeholder="Kalıp ara" onChange={(e) => inputChange(e,setPatternList,patternList, setPattern, pattern, PatternList)}/>
-                {patternList.map(val =>
-                  <EmptyDiv onClick={() => formatHandler(val, setPatternList, patternList, 7)} key={val.id}>
-                    <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
-                    <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
-                  </EmptyDiv>
-                )}
-              </HiddenOptionFullDiv>
-            )}
-          </OptionContainer>
-          <OptionContainer>
-            <StickyOption onClick={() => setMaterielCategory(!materielCategory)}>
-              <OptionSpan>Materyal</OptionSpan>
-              {materielCategory ? <OptionUpIcon/> : <OptionDownIcon/>}
-            </StickyOption>
-            {materielCategory && (
-              <HiddenOptionFullDiv>
-                <SearchBrandInput type="search" placeholder="Materyal ara" onChange={(e) => inputChange(e,setMaterielList,materielList, setMateriel, materiel, MaterielList)}/>
-                {materielList.map(val =>
-                  <EmptyDiv onClick={() => formatHandler(val, setMaterielList, materielList, 8)} key={val.id}>
-                    <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
-                    <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
-                  </EmptyDiv>
-                )}
-              </HiddenOptionFullDiv>
-            )}
-          </OptionContainer>
+          {formatInputDiv(setTrotterCategory, trotterCategory, "Paça Tipi", setTrotterTypeList, trotterTypeList, setTrotterType, trotterType, TrotterTypeList, 6)}
+          {formatInputDiv(setPatternCategory, patternCategory, "Kalıp", setPatternList, patternList, setPattern, pattern, PatternList, 7)}
+          {formatInputDiv(setMaterielCategory, materielCategory, "Materyal", setMaterielList, materielList, setMateriel, materiel, MaterielList, 8)}
           <OptionContainer>
             <StickyOption onClick={() => setWaistCategory(!waistCategory)}>
               <OptionSpan>Bel</OptionSpan>
@@ -398,12 +352,7 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-          <OptionContainer onClick={() => SingleFormatter(setFreeCargo, freeCargo, 1)}>
-            <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="Kargo Bedava" checked={freeCargo} onChange={SingleFormatter}/>
-              <OptionSpanAlone>Kargo Bedava</OptionSpanAlone>
-            </StickyOptionAlone>
-          </OptionContainer>
+          {formatSingleDiv(setFreeCargo, freeCargo, 1, "Kargo Bedava", freeCargo)}
           <OptionContainer>
             <StickyOption onClick={() => setUsageAreaCategory(!usageAreaCategory)}>
               <OptionSpan>Kullanım Alanı</OptionSpan>
@@ -420,20 +369,8 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-          <OptionContainer onClick={() => SingleFormatter(setPicComment, picComment, 2)}>
-            <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="Fotoğraflı Yorumlar" checked={picComment}
-                                  onChange={SingleFormatter}/>
-              <OptionSpanAlone>Fotoğraflı Yorumlar</OptionSpanAlone>
-            </StickyOptionAlone>
-          </OptionContainer>
-          <OptionContainer onClick={() => SingleFormatter(setNinePoint, ninePoint, 3)}>
-            <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="9 Puan Üzeri Satıcılar" checked={ninePoint}
-                                  onChange={SingleFormatter}/>
-              <OptionSpanAlone>9 Puan Üzeri Satıcılar</OptionSpanAlone>
-            </StickyOptionAlone>
-          </OptionContainer>
+          {formatSingleDiv(setPicComment, picComment, 2, "Fotoğraflı Yorumlar", picComment)}
+          {formatSingleDiv(setNinePoint, ninePoint, 3, "9 Puan Üzeri Satıcılar", ninePoint)}
           <OptionContainer>
             <StickyOption onClick={() => setSellerTypeCategory(!sellerTypeCategory)}>
               <OptionSpan>Satıcı Tipi</OptionSpan>
@@ -450,27 +387,9 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-          <OptionContainer onClick={() => SingleFormatter(setFastDelivery, fastDelivery, 4)}>
-            <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="Hızlı Teslimat" checked={fastDelivery}
-                                  onChange={SingleFormatter}/>
-              <OptionSpanAlone>Hızlı Teslimat</OptionSpanAlone>
-            </StickyOptionAlone>
-          </OptionContainer>
-          <OptionContainer onClick={() => SingleFormatter(setCouponProduct, couponProduct, 5)}>
-            <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="Kuponlu Ürünler" checked={couponProduct}
-                                  onChange={SingleFormatter}/>
-              <OptionSpanAlone>Kuponlu Ürünler</OptionSpanAlone>
-            </StickyOptionAlone>
-          </OptionContainer>
-          <OptionContainer onClick={() => SingleFormatter(setTogetherBuyWin, togetherBuyWin, 6)}>
-            <StickyOptionAlone>
-              <CheckBoxInputAlone type="checkbox" value="Birlikte Al Kazan" checked={togetherBuyWin}
-                                  onChange={SingleFormatter}/>
-              <OptionSpanAlone>Birlikte Al Kazan</OptionSpanAlone>
-            </StickyOptionAlone>
-          </OptionContainer>
+          {formatSingleDiv(setFastDelivery, fastDelivery, 4, "Hızlı Teslimat", fastDelivery)}
+          {formatSingleDiv(setCouponProduct, couponProduct, 5, "Kuponlu Ürünler", couponProduct)}
+          {formatSingleDiv(setTogetherBuyWin, togetherBuyWin, 6, "Birlikte Al Kazan", togetherBuyWin)}
           <OptionContainer>
             <StickyOption onClick={() => setProductRatingCategory(!productRatingCategory)}>
               <OptionSpan>Ürün Değerlendirmesi</OptionSpan>
@@ -487,13 +406,7 @@ const Container = () => {
               </HiddenOptionFullDiv>
             )}
           </OptionContainer>
-          <OptionContainer>
-            <StickyOptionAlone onClick={() => SingleFormatter(setVideoProduct, videoProduct, 7)}>
-              <CheckBoxInputAlone type="checkbox" value={"Videolu Ürün"} checked={videoProduct}
-                                  onChange={SingleFormatter}/>
-              <OptionSpanAlone>Videolu Ürün</OptionSpanAlone>
-            </StickyOptionAlone>
-          </OptionContainer>
+          {formatSingleDiv(setVideoProduct, videoProduct, 7, "Videolu Ürün", videoProduct)}
         </StickyLeftContainer>
       </CategoryContainer>
       <CardContainer>
@@ -518,9 +431,12 @@ const Container = () => {
                     <EmptyDiv>
                       {val.fastDelivery && <FastDeliveryDiv>HIZLI TESLİMAT</FastDeliveryDiv>}
                       {val.freeCargo && <FreeDeliveryDiv>KARGO BEDAVA</FreeDeliveryDiv>}
-                      {val.starProduct === "Bir Yıldızlı Ürün" &&  <StarProductImg src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/aa7816f3-395f-43b0-a9fc-0b806f923a6a.png"/>}
-                      {val.starProduct === "İki Yıldızlı Ürün" &&  <StarProductImg src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/e68c3d96-a877-4e49-923b-ca420419ab40.png"/>}
-                      {val.starProduct === "Üç Yıldızlı Ürün" &&  <StarProductImg src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/440b9fcb-2da5-421b-8466-4fb7f0c9a080.png"/>}
+                      {val.starProduct === "Bir Yıldızlı Ürün" && <StarProductImg
+                        src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/aa7816f3-395f-43b0-a9fc-0b806f923a6a.png"/>}
+                      {val.starProduct === "İki Yıldızlı Ürün" && <StarProductImg
+                        src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/e68c3d96-a877-4e49-923b-ca420419ab40.png"/>}
+                      {val.starProduct === "Üç Yıldızlı Ürün" && <StarProductImg
+                        src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/440b9fcb-2da5-421b-8466-4fb7f0c9a080.png"/>}
                     </EmptyDiv>
                   </ImageOverlayHeader>
                   <Images src={val.src}/>

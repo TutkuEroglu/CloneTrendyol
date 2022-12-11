@@ -103,12 +103,6 @@ export const HiddenOptionFullDiv = styled.div`
   overflow-x: hidden;
 `;
 
-export const HiddenFullDiv = styled.div`
-  height: 100%;
-  position: relative;
-  margin-bottom: 15px;
-`;
-
 export const HiddenOptionSpan = styled.span`
   color: #1b1b1b;
   font-size: 13px;
