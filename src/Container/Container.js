@@ -19,13 +19,13 @@ import {
   DiscountContect,
   DiscountIcon,
   DiscountSpan, EmptyDiv,
-  FastDelivery, HiddenFullDiv,
+  FastDelivery, FastDeliveryDiv, FreeDeliveryDiv, HiddenFullDiv,
   HiddenOptionDiv, HiddenOptionFullDiv,
   HiddenOptionSpan,
-  ImageContainer,
+  ImageContainer, ImageOverlayHeader,
   Images,
   ImportantSpan,
-  Info,
+  Info, LikeButton, LikeButtonDiv,
   OptionContainer,
   OptionDownIcon,
   OptionSpan, OptionSpanAlone,
@@ -35,7 +35,7 @@ import {
   ProductDown, RadioInput, SearchBrandInput,
   SearchHeader,
   SelectedOptionBack,
-  SelectedOptionSpan,
+  SelectedOptionSpan, StarProductImg,
   StickyLeftContainer,
   StickyOption, StickyOptionAlone,
   TruckIcon,
@@ -58,13 +58,18 @@ import {
 import {formatPrice} from "../Utils/formatPrice";
 
 const Container = () => {
+  const [brand, setBrand] = useState("")
+  const [bodySize, setBodySize] = useState("")
+  const [trotterType, setTrotterType] = useState("");
+  const [pattern, setPattern] = useState("");
+  const [materiel, setMateriel] = useState("");
   const [list, setList] = useState(ContainerList);
   const [brandListCopy, setBrandListCopy] = useState(BrandList)
   const [gender, setGender] = useState(GenderList);
   const [bodySizeList, setBodySizeList] = useState(BodySizeList);
   const [trotterTypeList, setTrotterTypeList] = useState(TrotterTypeList);
   const [patternList, setPatternList] = useState(PatternList);
-  const [materiel, setMateriel] = useState(MaterielList);
+  const [materielList, setMaterielList] = useState(MaterielList);
   const [waist, setWaist] = useState(WaistList);
   const [usageArea, setUsageArea] = useState(UsageAreaList);
   const [sellerTypeList, setSellerTypeList] = useState(SellerTypeList);
@@ -86,17 +91,23 @@ const Container = () => {
   const [category, setCategory] = useState(false);
   const [priceCategory, setPriceCategory] = useState(false);
   const [starCategory, setStarCategory] = useState(false);
-  const [brandCategory, setBrandCategory] = useState(false);
+  const [brandCategory, setBrandCategory] = useState(true);
   const [bodySizeCategory, setBodySizeCategory] = useState(false);
   const [trotterCategory, setTrotterCategory] = useState(false);
   const [colorCategory, setColorCategory] = useState(false);
-  const [genderCategory, setGenderCategory] = useState(false);
+  const [genderCategory, setGenderCategory] = useState(true);
   const [patternCategory, setPatternCategory] = useState(false);
   const [materielCategory, setMaterielCategory] = useState(false);
   const [waistCategory, setWaistCategory] = useState(false);
   const [usageAreaCategory, setUsageAreaCategory] = useState(false);
   const [sellerTypeCategory, setSellerTypeCategory] = useState(false);
   const [productRatingCategory, setProductRatingCategory] = useState(false);
+
+  const inputChange = (e, setClassList, getClassList, setClass, getClass, DoneList) => {
+    setClass(e.target.value)
+    if (e.target.value === "" || e.target.value === " " || getClass === "" || getClass === " ") setClassList(DoneList)
+    else setClassList(getClassList.filter(el => el.text.toLowerCase().includes(e.target.value.toLowerCase())))
+  }
 
    const SingleFormatter = (setClass, getClass, IdNumber) => {
     if (!getClass) {
@@ -240,7 +251,7 @@ const Container = () => {
             </StickyOption>
             {brandCategory && (
               <HiddenOptionFullDiv>
-                <SearchBrandInput placeholder="Marka ara"/>
+                <SearchBrandInput type="search" placeholder="Marka ara" onChange={(e) => inputChange(e,setBrandListCopy,brandListCopy, setBrand, brand, BrandList)}/>
                 {brandListCopy.map(val =>
                   <EmptyDiv onClick={() => formatHandler(val, setBrandListCopy, brandListCopy, 1)} key={val.id}>
                     <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
@@ -257,7 +268,7 @@ const Container = () => {
             </StickyOption>
             {bodySizeCategory && (
               <HiddenOptionFullDiv>
-                <SearchBrandInput placeholder="Beden ara"/>
+                <SearchBrandInput type="search" placeholder="Beden ara" onChange={(e) => inputChange(e,setBodySizeList,bodySizeList, setBodySize, bodySize, BodySizeList)}/>
                 {bodySizeList.map(val =>
                   <EmptyDiv onClick={() => formatHandler(val, setBodySizeList, bodySizeList, 2)} key={val.id}>
                     <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
@@ -327,7 +338,7 @@ const Container = () => {
             </StickyOption>
             {trotterCategory && (
               <HiddenFullDiv>
-                <SearchBrandInput placeholder="Paça Tipi ara"/>
+                <SearchBrandInput type="search" placeholder="Paça Tipi ara" onChange={(e) => inputChange(e,setTrotterTypeList,trotterTypeList, setTrotterType, trotterType, TrotterTypeList)}/>
                 {trotterTypeList.map(val =>
                   <EmptyDiv onClick={() => formatHandler(val, setTrotterTypeList, trotterTypeList, 6)} key={val.id}>
                     <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
@@ -344,7 +355,7 @@ const Container = () => {
             </StickyOption>
             {patternCategory && (
               <HiddenOptionFullDiv>
-                <SearchBrandInput placeholder="Kalıp ara"/>
+                <SearchBrandInput type="search" placeholder="Kalıp ara" onChange={(e) => inputChange(e,setPatternList,patternList, setPattern, pattern, PatternList)}/>
                 {patternList.map(val =>
                   <EmptyDiv onClick={() => formatHandler(val, setPatternList, patternList, 7)} key={val.id}>
                     <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
@@ -361,9 +372,9 @@ const Container = () => {
             </StickyOption>
             {materielCategory && (
               <HiddenOptionFullDiv>
-                <SearchBrandInput placeholder="Materyal ara"/>
-                {materiel.map(val =>
-                  <EmptyDiv onClick={() => formatHandler(val, setMateriel, materiel, 8)} key={val.id}>
+                <SearchBrandInput type="search" placeholder="Materyal ara" onChange={(e) => inputChange(e,setMaterielList,materielList, setMateriel, materiel, MaterielList)}/>
+                {materielList.map(val =>
+                  <EmptyDiv onClick={() => formatHandler(val, setMaterielList, materielList, 8)} key={val.id}>
                     <CheckBoxInput type="checkbox" value={val.text} checked={val.isChecked} onChange={formatHandler}/>
                     <CheckBoxFullLabel>{val.text}</CheckBoxFullLabel>
                   </EmptyDiv>
@@ -498,7 +509,23 @@ const Container = () => {
         <ContainerInfo>
           {list.map(val =>
             <Cards key={val.id}>
-              <ImageContainer><CardImage><Images src={val.src}></Images></CardImage></ImageContainer>
+              <ImageContainer>
+                <CardImage>
+                  <LikeButtonDiv>
+                    <LikeButton></LikeButton>
+                  </LikeButtonDiv>
+                  <ImageOverlayHeader>
+                    <EmptyDiv>
+                      {val.fastDelivery && <FastDeliveryDiv>HIZLI TESLİMAT</FastDeliveryDiv>}
+                      {val.freeCargo && <FreeDeliveryDiv>KARGO BEDAVA</FreeDeliveryDiv>}
+                      {val.starProduct === "Bir Yıldızlı Ürün" &&  <StarProductImg src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/aa7816f3-395f-43b0-a9fc-0b806f923a6a.png"/>}
+                      {val.starProduct === "İki Yıldızlı Ürün" &&  <StarProductImg src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/e68c3d96-a877-4e49-923b-ca420419ab40.png"/>}
+                      {val.starProduct === "Üç Yıldızlı Ürün" &&  <StarProductImg src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/440b9fcb-2da5-421b-8466-4fb7f0c9a080.png"/>}
+                    </EmptyDiv>
+                  </ImageOverlayHeader>
+                  <Images src={val.src}/>
+                </CardImage>
+              </ImageContainer>
               <ProductDown>
                 <ContainerDiv>
                   <ContainerSpan><ImportantSpan>{val.tag}</ImportantSpan>{val.name}</ContainerSpan>
