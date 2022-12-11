@@ -37,6 +37,11 @@ export const StickyLeftContainer = styled.div`
   position: sticky;
   top: -250px;
   bottom: 0;
+
+  @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
+    top: 0;
+    bottom: auto;
+  }
 `;
 
 export const OptionContainer = styled.div`
