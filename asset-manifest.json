@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.js": "/CloneTrendyol/static/js/main.12be309a.js",
+    "static/js/787.1890033e.chunk.js": "/CloneTrendyol/static/js/787.1890033e.chunk.js",
+    "static/media/ProximaNova-Bold.otf": "/CloneTrendyol/static/media/ProximaNova-Bold.fcaab2524c5baabd71f6.otf",
+    "static/media/ProximaNova-Regular.otf": "/CloneTrendyol/static/media/ProximaNova-Regular.ea03f826587148b7335d.otf",
+    "static/media/ProximaNova-Light.otf": "/CloneTrendyol/static/media/ProximaNova-Light.bc42c8e36c797ea26f4a.otf",
+    "static/media/ProximaNova-Semibold.otf": "/CloneTrendyol/static/media/ProximaNova-Semibold.227817852e96b494055e.otf",
+    "static/media/ty-web.svg": "/CloneTrendyol/static/media/ty-web.81cf3e90bfb281596cfadfc1ab11f7b6.svg",
+    "index.html": "/CloneTrendyol/index.html",
+    "static/media/truck.svg": "/CloneTrendyol/static/media/truck.5d591e19db3a564047042d52c7d39896.svg",
+    "static/media/heart.svg": "/CloneTrendyol/static/media/heart.01032e985250f2421f5b1da305620acf.svg",
+    "static/media/cart.svg": "/CloneTrendyol/static/media/cart.c2c12d233256cff360b0f66a8088cd97.svg",
+    "static/media/camera.svg": "/CloneTrendyol/static/media/camera.805183acd907c7eff2e0289bd19704d2.svg",
+    "static/media/cart-fill.svg": "/CloneTrendyol/static/media/cart-fill.6f9d9c266f2710547edfab377c349ca4.svg",
+    "static/media/award.svg": "/CloneTrendyol/static/media/award.9709e79da4ea684b4d95b28d9ccf5748.svg",
+    "static/media/star-fill.svg": "/CloneTrendyol/static/media/star-fill.8dba13f8d1267c7c1f96da37cf92dfef.svg",
+    "static/media/person.svg": "/CloneTrendyol/static/media/person.c47b10f3a30d2c4da768d0735852a519.svg",
+    "static/media/search.svg": "/CloneTrendyol/static/media/search.4b174aba3ca9225719f55dc131b8d17e.svg",
+    "static/media/tag.svg": "/CloneTrendyol/static/media/tag.55bef10c8f97a49806dc0423884116ef.svg",
+    "static/media/chevron-down.svg": "/CloneTrendyol/static/media/chevron-down.9599be1e4be474afd60905d860158340.svg",
+    "static/media/playcircle.svg": "/CloneTrendyol/static/media/playcircle.7154c87d2a88a5adfc39f5e6d2c9bcbc.svg",
+    "static/media/chevron-up.svg": "/CloneTrendyol/static/media/chevron-up.564f0b35a80aba968fc206c632afebe4.svg",
+    "static/media/heart-fill.svg": "/CloneTrendyol/static/media/heart-fill.9733c4fb42b5bec25989d2f06b1ec5be.svg",
+    "static/media/person-fill.svg": "/CloneTrendyol/static/media/person-fill.1708317b4a953dfe21ec0bba86f9bfeb.svg",
+    "main.12be309a.js.map": "/CloneTrendyol/static/js/main.12be309a.js.map",
+    "787.1890033e.chunk.js.map": "/CloneTrendyol/static/js/787.1890033e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.12be309a.js"
+  ]
+}
