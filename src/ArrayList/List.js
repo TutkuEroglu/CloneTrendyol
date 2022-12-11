@@ -255,25 +255,15 @@ export const PriceList = [
 export const StarProductList = [
   {
     id:1,
-    text:"Beş Yıldızlı Ürün",
-    isChecked: false,
-  },
-  {
-    id:2,
-    text:"Dört Yıldızlı Ürün",
-    isChecked: false,
-  },
-  {
-    id:3,
     text:"Üç Yıldızlı Ürün",
     isChecked: false,
   },
   {
-    id:4,
+    id:2,
     text:"İki Yıldızlı Ürün",
     isChecked: false,
   },{
-    id:5,
+    id:3,
     text:"Bir Yıldızlı Ürün",
     isChecked: false,
   },
