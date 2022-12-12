@@ -139,8 +139,8 @@ const Container = () => {
 
   const inputChange = (e, setClassList, getClassList, setClass, getClass, DoneList) => {
     setClass(e.target.value)
-    if ((e.target.value || getClass === "") || (e.target.value || getClass === " ")) setClassList(DoneList)
-    else setClassList(getClassList.filter(el => el.text.toLowerCase().includes(e.target.value.toLowerCase())))
+    if (e.target.value === "" || e.target.value === " " || getClass === "" ||  getClass === " ") setClassList(DoneList)
+    else setClassList(DoneList.filter(el => el.text.toLowerCase().includes(e.target.value.toLowerCase())))
   }
 
   const SingleFormatter = (setClass, getClass, IdNumber) => {
