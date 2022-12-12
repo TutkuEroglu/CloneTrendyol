@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/CloneTrendyol/static/js/main.f22206d6.js",
+    "main.js": "/CloneTrendyol/static/js/main.066dc570.js",
     "static/js/787.1890033e.chunk.js": "/CloneTrendyol/static/js/787.1890033e.chunk.js",
     "static/media/ProximaNova-Bold.otf": "/CloneTrendyol/static/media/ProximaNova-Bold.fcaab2524c5baabd71f6.otf",
     "static/media/ProximaNova-Regular.otf": "/CloneTrendyol/static/media/ProximaNova-Regular.ea03f826587148b7335d.otf",
@@ -23,10 +23,10 @@
     "static/media/chevron-up.svg": "/CloneTrendyol/static/media/chevron-up.564f0b35a80aba968fc206c632afebe4.svg",
     "static/media/heart-fill.svg": "/CloneTrendyol/static/media/heart-fill.9733c4fb42b5bec25989d2f06b1ec5be.svg",
     "static/media/person-fill.svg": "/CloneTrendyol/static/media/person-fill.1708317b4a953dfe21ec0bba86f9bfeb.svg",
-    "main.f22206d6.js.map": "/CloneTrendyol/static/js/main.f22206d6.js.map",
+    "main.066dc570.js.map": "/CloneTrendyol/static/js/main.066dc570.js.map",
     "787.1890033e.chunk.js.map": "/CloneTrendyol/static/js/787.1890033e.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.f22206d6.js"
+    "static/js/main.066dc570.js"
   ]
 }
