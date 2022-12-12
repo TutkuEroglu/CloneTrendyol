@@ -60,7 +60,7 @@ export const StickyOption = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: rgb(246, 246, 246);
+    background-color: ${({ theme }) => theme.colors.backGroundHover};
   }
 `;
 
@@ -72,26 +72,26 @@ export const StickyOptionAlone = styled.div`
   cursor: pointer;
   
   &:hover {
-    background-color: rgb(246, 246, 246);
+    background-color: ${({ theme }) => theme.colors.backGroundHover};
   }
 `;
 
 export const OptionSpan = styled.span`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.fontSizes.small};
   font-family: source_sans_prosemibold!important;
-  color: #333333;
+  color: ${({ theme }) => theme.colors.newBg};
   font-weight: 550;
   margin-bottom: 8px;
 `;
 
 export const OptionUpIcon = styled(uparrow)`
   margin-bottom: 10px;
-  color: #f27a1a;
+  color: ${({ theme }) => theme.colors.newOrange};
 `;
 
 export const OptionDownIcon = styled(downarrow)`
   margin-bottom: 10px;
-  color: #999;
+  color: ${({ theme }) => theme.colors.iconColor};
 `;
 
 export const HiddenOptionDiv = styled.div`
@@ -109,28 +109,28 @@ export const HiddenOptionFullDiv = styled.div`
 `;
 
 export const HiddenOptionSpan = styled.span`
-  color: #1b1b1b;
-  font-size: 13px;
+  color: ${({ theme }) => theme.colors.hiddenSpanColor};
+  font-size: ${({ theme }) => theme.fontSizes.stiny};
   padding: 3px 0;
 
   &:hover {
-    color: #9f9f9f;
+    color: ${({ theme }) => theme.colors.hiddenSpanColorHover};
   }
 `;
 
 export const SelectedOptionSpan = styled.span`
-  color: #f27a1a;
-  font-size: 13px;
+  color: ${({ theme }) => theme.colors.newOrange};
+  font-size: ${({ theme }) => theme.fontSizes.stiny};
   padding: 3px 0;
   font-weight: 600;
 `;
 
 export const SelectedOptionBack = styled.span`
   font-family: source_sans_proregular;
-  font-size: 13px;
+  font-size: ${({ theme }) => theme.fontSizes.stiny};
   padding: 20px 0 15px 0;
   box-sizing: border-box;
-  color: #f27a1a;
+  color: ${({ theme }) => theme.colors.newOrange};
   cursor: pointer;
 `;
 
@@ -147,8 +147,8 @@ export const CardContainer = styled.div`
 `;
 
 export const SearchHeader = styled.span`
-  font-size: 18px;
-  color: #333;
+  font-size: ${({ theme }) => theme.fontSizes.large};
+  color: ${({ theme }) => theme.colors.inputColor};
   letter-spacing: normal;
   font-family: source_sans_prosemibold, sans-serif;
   display: flex;
@@ -162,10 +162,11 @@ export const FastDelivery = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #DEFFED;
+  background-color: ${({ theme }) => theme.colors.deliveryColor};
   border-radius: 6px;
   height: 68px;
   padding: 0 20px;
+  box-sizing: border-box;
   margin-bottom: 15px;
   margin-left: 18px;
 `;
@@ -176,7 +177,7 @@ export const Info = styled.div`
 `;
 
 export const TruckIcon = styled(truck)`
-  color: #0BC15C;
+  color: ${({ theme }) => theme.colors.truckIconColor};
   margin-top: 2px;
   margin-right: 15px;
 `;
@@ -192,8 +193,8 @@ export const DeliveryButton = styled.a`
   font-size: 14px;
   font-family: source_sans_proregular;
   font-weight: 600;
-  color: #fff;
-  background-color: #0BC15C;
+  color: ${({ theme }) => theme.colors.bttnColor};
+  background-color: ${({ theme }) => theme.colors.truckIconColor};
   margin-left: 10px;
   box-shadow: 0px 1px 3px rgb(0 0 0 / 3%);
   border-radius: 6px;
@@ -201,7 +202,7 @@ export const DeliveryButton = styled.a`
   cursor: pointer;
 
   &:hover {
-    background-color: #099847;
+    background-color: ${({ theme }) => theme.colors.hoverBackGround};
   }
 `;
 
@@ -210,7 +211,6 @@ export const ContainerInfo = styled.div`
   flex-wrap: wrap;
   margin-bottom: 15px;
   width: 1000px;
-  
   
   @media (max-width: ${({ theme }) => `${theme.breakPoints.lg}px`}) {
     max-width: 800px;
@@ -247,7 +247,7 @@ export const Cards = styled.div`
   }
   
   @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
-    
+    margin-left: 45px;
   }
 `;
 
@@ -301,9 +301,9 @@ export const FastDeliveryDiv = styled.div`
   height: 25px !important;
   box-sizing: border-box;
   font: 10px/10px source_sans_prosemibold !important;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.bttnColor};
   text-align: center;
-  background-color: #3ec461;
+  background-color: ${({ theme }) => theme.colors.divBackGround};
 `;
 
 export const FreeDeliveryDiv = styled.div`
@@ -316,9 +316,9 @@ export const FreeDeliveryDiv = styled.div`
   height: 25px !important;
   box-sizing: border-box;
   font: 10px/10px source_sans_prosemibold !important;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.bttnColor};
   text-align: center;
-  background-color: #535353;
+  background-color: ${({ theme }) => theme.colors.freeDeliveryDiv};
 `;
 
 export const LikeButtonDiv = styled.div`
@@ -349,6 +349,7 @@ export const StarProductImg = styled.img`
 export const ProductDown = styled.div`
   padding: 10px;
   margin-bottom: 5px;
+  box-sizing: border-box;
 `;
 
 export const ContainerDiv = styled.span`
@@ -357,8 +358,8 @@ export const ContainerDiv = styled.span`
 
 export const ImportantSpan = styled.span`
   font-family: source_sans_proregular, sans-serif;
-  font-size: 14px;
-  color: #333;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  color: ${({ theme }) => theme.colors.inputColor};
   font-weight: 700;
   margin-right: 4px;
 `;
@@ -366,8 +367,8 @@ export const ImportantSpan = styled.span`
 export const ContainerSpan = styled.span`
   position: relative;
   line-height: normal;
-  font-size: 14px;
-  color: #666;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  color: ${({ theme }) => theme.colors.spanColor};
   margin: 2px 0;
   box-sizing: border-box;
   text-align: left;
@@ -385,9 +386,9 @@ export const PriceSpan = styled.span`
   height: 16px;
   min-height: 28px;
   white-space: nowrap;
-  color: #f27a1a;
+  color: ${({ theme }) => theme.colors.newOrange};
   font-weight: 550;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
   font-family: oxygen-bold;
 `;
 
@@ -399,7 +400,7 @@ export const CampaignDiv = styled.div`
 `;
 
 export const VideoContect = styled.div`
-  background-color: #ebf5ff;
+  background-color: ${({ theme }) => theme.colors.videoBackGround};
   border-radius: 4px;
   padding-right: 5px;
   padding-top: 2px;
@@ -412,18 +413,18 @@ export const VideoContect = styled.div`
 export const VideoIcon = styled(playcircle)`
   width: 14px;
   height: 14px;
-  color: #4A90E2;
+  color: ${({ theme }) => theme.colors.videoIcon};
   padding: 0 5px;
 `;
 
 export const VideoSpan = styled.span`
-  color: #333333;
-  font-size: 11px;
+  color: ${({ theme }) => theme.colors.newBg};
+  font-size: ${({ theme }) => theme.fontSizes.tinySmall};
   font-weight: 600;
 `;
 
 export const DiscountContect = styled.div`
-  background-color: #FFF6EE;
+  background-color: ${({ theme }) => theme.colors.discountContectBg};
   border-radius: 4px;
   padding-right: 5px;
   padding-top: 2px;
@@ -436,18 +437,18 @@ export const DiscountContect = styled.div`
 export const DiscountIcon = styled(tag)`
   width: 14px;
   height: 14px;
-  color: #F27A1A;
+  color: ${({ theme }) => theme.colors.newOrange};
   padding: 0 5px;
 `;
 
 export const DiscountSpan = styled.span`
-  color: #333333;
-  font-size: 11px;
+  color: ${({ theme }) => theme.colors.newBg};
+  font-size: ${({ theme }) => theme.fontSizes.tinySmall};
   font-weight: 600;
 `;
 
 export const CouponContect = styled.div`
-  background-color: #FFF0F5;
+  background-color: ${({ theme }) => theme.colors.couponContectBg};
   border-radius: 4px;
   padding-right: 5px;
   padding-top: 2px;
@@ -460,13 +461,13 @@ export const CouponContect = styled.div`
 export const CouponIcon = styled(award)`
   width: 14px;
   height: 14px;
-  color: #FF4988;
+  color: ${({ theme }) => theme.colors.couponIcon};
   padding: 0 5px;
 `;
 
 export const CouponSpan = styled.span`
-  color: #333333;
-  font-size: 11px;
+  color: ${({ theme }) => theme.colors.newBg};
+  font-size: ${({ theme }) => theme.fontSizes.tinySmall};
   font-weight: 600;
 `;
 
@@ -476,8 +477,8 @@ export const CheckBoxFullLabel = styled.label`
   cursor: pointer;
   padding: 0.1em;
   box-sizing: border-box;
-  font-size: 13px;
-  color: #1b1b1b;
+  font-size: ${({ theme }) => theme.fontSizes.stiny};
+  color: ${({ theme }) => theme.colors.hiddenSpanColor};
 
   &:before {
     border: 0.1em solid #d6d6d6;
@@ -501,7 +502,7 @@ export const CheckBoxFullLabel = styled.label`
   }
 
   &:hover {
-    color: #B5B5B5;
+    color: ${({ theme }) => theme.colors.checkboxHover};
   }
 `;
 
@@ -510,7 +511,7 @@ export const PriceLabel = styled.label`
   overflow: hidden;
   white-space: nowrap;
   margin-left: 6px;
-  font-size: 13px;
+  font-size: ${({ theme }) => theme.fontSizes.stiny};
   display: flex;
   align-items: center;
 `;
@@ -520,15 +521,15 @@ export const CheckBoxInput = styled.input`
   display: none;
 
   &:checked + ${CheckBoxFullLabel}:before {
-    color: #fff;
-    background-color: #f27a1a;
+    color: ${({ theme }) => theme.colors.mobileMenuLinks};
+    background-color: ${({ theme }) => theme.colors.newOrange};
     border: solid 1.5px #f27a1a;
   }
 
   &:checked:disabled + ${CheckBoxFullLabel}:before {
     transform: scale(1);
-    background-color: #bfb;
-    border-color: #bfb;
+    background-color: ${({ theme }) => theme.colors.checkboxColor};
+    border-color: ${({ theme }) => theme.colors.checkboxColor};
   }
 `;
 
@@ -538,7 +539,7 @@ export const CheckBoxLabel = styled.label`
   font-size: 13px;
   font-weight: 550;
   min-height: 25px;
-  
+
   &:before {
     border: 0.1em solid #d6d6d6;
     border-radius: 0.2em;
@@ -555,11 +556,10 @@ export const CheckBoxLabel = styled.label`
     opacity: 1;
     background: url(https://cdn.dsmcdn.com/web/assets/check.svg) no-repeat center center;
   }
-
   &:active:before {
     transform: scale(0);
   }
-  
+
   &:hover {
     color: #B5B5B5;
   }
@@ -568,13 +568,11 @@ export const CheckBoxLabel = styled.label`
 export const CheckBoxDoubleInput = styled.input`
   margin-right: 5px;
   display: none;
-
   &:checked + ${CheckBoxLabel}:before {
     color: #fff;
     background-color: #f27a1a;
     border: solid 1.5px #f27a1a;
   }
-
   &:checked:disabled + ${CheckBoxLabel}:before {
     transform: scale(1);
     background-color: #bfb;
@@ -589,9 +587,8 @@ export const OptionSpanAlone = styled.label`
   cursor: pointer;
   padding: 0.2em;
   font-size: 13px;
-
   &:before {
-  
+
     border: 0.1em solid #d6d6d6;
     border-radius: 0.2em;
     display: inline-block;
@@ -607,7 +604,6 @@ export const OptionSpanAlone = styled.label`
     opacity: 1;
     background: url(https://cdn.dsmcdn.com/web/assets/check.svg) no-repeat center center;
   }
-
   &:active:before {
     transform: scale(0);
   }
@@ -615,13 +611,12 @@ export const OptionSpanAlone = styled.label`
 
 export const CheckBoxInputAlone = styled.input`
   display: none;
-  
-  &:checked + ${OptionSpanAlone}:before {
-      color: #fff;
-      background-color: #f27a1a;
-      border: solid 1.5px #f27a1a;
-  }
 
+  &:checked + ${OptionSpanAlone}:before {
+    color: #fff;
+    background-color: #f27a1a;
+    border: solid 1.5px #f27a1a;
+  }
   &:checked:disabled + ${OptionSpanAlone}:before {
     transform: scale(1);
     background-color: #bfb;
@@ -629,20 +624,17 @@ export const CheckBoxInputAlone = styled.input`
   }
 `;
 
-
 export const RadioInput = styled.input`
   margin-bottom: 3px;
   margin-right: 5px;
 `;
 
-export const EmptyDiv = styled.div`
-  
-`;
+export const EmptyDiv = styled.div``;
 
 export const SearchBrandInput = styled.input`
   width: 87%;
   height: 25px;
-  background-color: #fafafa;
+  background-color: ${({ theme }) => theme.colors.searchInput};
   border: solid 1px #e2e2e2;
   border-radius: 6px;
   margin-bottom: 10px;
@@ -693,7 +685,7 @@ export const PriceInputDiv = styled.div`
 export const PriceInput = styled.input`
   margin-bottom: 5px;
   height: 30px;
-  background-color: #fafafa;
+  background-color: ${({ theme }) => theme.colors.searchInput};
   border: solid 1px #e2e2e2;
   border-radius: 6px;
   width: 56px;
@@ -709,7 +701,7 @@ export const PriceInput = styled.input`
 export const PriceDivSpan = styled.span`
   display: inline-block;
   vertical-align: middle;
-  color: #9c9c9c;
+  color: ${({ theme }) => theme.colors.priceDiv};
   margin-left: 6px;
   margin-right: 6px;
 `;
