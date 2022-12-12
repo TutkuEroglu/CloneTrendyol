@@ -35,7 +35,7 @@ export const CategoryContainer = styled.div`
 
 export const StickyLeftContainer = styled.div`
   position: sticky;
-  top: -250px;
+  top: -350px;
   bottom: 0;
 
   @media (max-width: ${({ theme }) => `${theme.breakPoints.xs}px`}) {
